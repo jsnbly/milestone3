@@ -20,7 +20,7 @@ def get_user():
 
 @app.route('/get_recipe')
 def get_recipe():
-    return render_template("recp_view.html", users=mongo.db.recipe.find())
+    return render_template("recp_view.html", recipes=mongo.db.recipe.find())
 
 
 if __name__ == '__main__':
