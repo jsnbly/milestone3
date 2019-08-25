@@ -1,14 +1,22 @@
 # Milestone 3 Data Centric Development   
 
 Cookbook - This projects brief was to design an online recipe book that would give the user a way to share and find new recipes  
-with users all over the world. It was designed to show basic CRUD (Create, Read, Update, Delete) functionality using a nosql database.  
- 
+with users all over the world. 
+
+It was designed to show basic CRUD (Create, Read, Update, Delete) functionality using a nosql database.  
+
+In this project, you'll build a full-stack site that allows your users to manage a common dataset about a particular domain. 
+
 ## UX
  
 Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
 
 In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
 - As a user type, I want to perform an action, so that I can achieve a goal.
+
+Users make use of the site to share their own data with the community, and benefit from having convenient access to the data provided by all other members.
+
+The site owner advances their own goals by providing this functionality, potentially by being a regular user themselves. The site owner might also benefit from the collection of the dataset as a whole.
 
 As a user - I want a website that is easy to navigate with a layout that is easy to read  
 As a user - I want to create a user account  
