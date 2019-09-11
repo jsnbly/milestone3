@@ -1,11 +1,41 @@
 # Milestone 3 Data Centric Development   
+Online Cookbook - The brief for this project was to design and build an online Recipe Book to give the site owner a way to promote their brand of cooking tools by give external users a way to share recipes with other users on the site.
 
-Cookbook - This projects brief was to design an online recipe book that would give the user a way to share and find new recipes  
-with users all over the world. 
+# Project Requirements  
+Main Technologies  
+HTML,CSS,JavaScript,Python & Flask,MongoDB and can include Aditional Libraries and external APIS.  
 
-It was designed to show basic CRUD (Create, Read, Update, Delete) functionality using a nosql database.  
+# Project Mandatory Requirments  
+Data Handling: Build a MongoDB-backed Flask project for a web application that allows user to store and manipulate data records about a particular domain.  
+Database Structure:Put some effore into designing a database structure well suited for your domain. Mkae sure to put some thought into the nesting relationships between records of different entities.  
+User Functionality: Create functionality for users to create, locate, display, edit and delete records (CRUD functionality)  
+Use of Technologies: Use HTML and customer CSS for the Websites front-end.  
+Structure: Incorporate a main navigation menu and structured layout  
+Documentation: Write a README.md files for your project that explains what the project dose and the value that it provides to its users.  
+Version control: Use Git & GitHug for version control.  
+Attribution: Maintain clear separation netween code written by you and code from external sources. Attribute any code from external sources via comments above the code and for larger dependencies in the README.  
+Deployment:Deply the final version of your code to a hosting plaform such as Heroku.  
 
-In this project, you'll build a full-stack site that allows your users to manage a common dataset about a particular domain. 
+# Project Idea  
+
+External User Goals  
+-Find and Share Recipes  
+
+Site Owner Goals  
+-Promote a Brand of Cooking Tools  
+
+Potential Features  
+-Create a web application that allows users to store and easily access cooking recipes. Recipes would include fields such as ingredients, preparation steps, required tools, cuisine, etc.  
+
+-Create the backend code and frontend form(s) to allow users to add new recipes to the site, edit them and delete them.  
+
+-Create the backend and frontend functionality for users to locate recipes based on the recipe's fields. You may choose to create a full search functionality, or just a directory of recipes.  
+
+-Provide results in a manner that is visually appealing and user friendly.  
+
+Advanced potential feature (nice-to-have)  
+-Build upon the required tools field to promote your brand of kitchen tools (e.g. oven, pressure cooker, etc…).  
+-Create a dashboard to provide some statistics about all the recipes.  
 
 ## UX
  
