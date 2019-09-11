@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-from forms import LoginForm
+from forms import LoginForm, AddUser
 
 app = Flask(__name__)
 
@@ -16,10 +16,11 @@ mongo = PyMongo(app)
 
 #Main Route
 @app.route('/')
+@app.route('/index')
 def index():
     return render_template("base.html")
 
-#User Route code
+#User Routes
 
 #Get User Route
 @app.route('/get_user')
@@ -31,6 +32,24 @@ def login():
     form = LoginForm()
     return render_template('login.html', title='Sign In', form=form)
 
+@app.route('/register' methods=['GET', 'POST'])
+def login():
+    form = AddUser(request.form)
+    if form.validate_on_submit():
+        users= mongo.db.user
+        dose_user_exist = user.find.one({'username':request.form['username']})
+
+        if dose_user_exist is None:
+
+            user.insert_one({'username':request.form['username'],
+                                'password': request.form['password'],
+                                'email':request.form['email']
+                                })
+            return redirect(url_for('index'))
+        flash('That username already exists, Please try again')
+        return redirect(url_for('register'))
+    return render_template('register.html', title='Register', form=form)
+
 #Get Recipe Route
 @app.route('/get_recipe')
 def get_recipe():
@@ -39,7 +58,7 @@ def get_recipe():
 #Get Shop Route
 @app.route('/get_shop')
 def get_shop():
-    return render_template("shop.html")
+    return render_template("shop.html" title ='Shop')
 
 #Remove Debug flag for deployment
 if __name__ == '__main__':
