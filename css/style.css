@@ -1,0 +1,17 @@
+.jumbotron {
+    background-image: url("../images/jumbotron1.jpg");
+    background-size: cover;
+    color: black;
+    font-weight: bold;
+  }
+
+#jumbotron-text{
+  background: white;
+  padding-bottom: 5px;
+  border-radius: 25px;
+}
+
+.recipesection{
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
