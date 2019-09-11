@@ -1,6 +1,6 @@
 import os
 import bcrypt
-from flask import Flask, render_template, redirect, request, url_for, flash
+from flask import Flask, render_template, redirect, request, url_for, flash, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from forms import LoginForm, AddUser
@@ -32,15 +32,20 @@ def get_user():
 #Login user
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+
+    if session.get('logged_in'):
+        if session['logged_in'] is True:
+            return redirect(url_for('index', title="Sign In"))
+    
     form = LoginForm()
     user = mongo.db.user
     user_login = user.find_one({'username' : request.form['username']})
     if user_login:
         if bcrypt.hashpw(request.form['password'].encode('utf-8'), user_login['password'].encode('utf-8')) == user_login['password'].encode('utf-8'):
             session['username'] = request.form['username']
-            return redirect(url_for('index'))
-        return 'Invalid Username or Password'    
-
+            session['logged_in'] = True
+            return redirect(url_for('index', title="Sign In", form='form'))
+        flash('Invalid Username or Password')    
 return render_template("login.html", title="Sign In", form=form)
 
 #register user
@@ -57,10 +62,17 @@ def register():
                                 'password': cryptpass,
                                 'email':request.form['email']})
             session['username'] = request.form['username']
-            return redirect(url_for('index'))
+            flash('Your Account has been created, You can now login', 'success')
+            return redirect(url_for('login'))
         flash('That username already exists, Please try again')
         return redirect(url_for('register'))
     return render_template("register.html", title='Register', form=form)
+
+#Log out by clearing user session
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('index'))
 
 #Recipe Routes
 
