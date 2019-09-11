@@ -32,7 +32,7 @@ def login():
     form = LoginForm()
     return render_template('login.html', title='Sign In', form=form)
 
-@app.route('/register' method=['GET', 'POST'])
+@app.route('/register', methods=['GET', 'POST'])
 def login():
     form = AddUser(request.form)
     if form.validate_on_submit():
