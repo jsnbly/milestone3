@@ -36,7 +36,7 @@ def login():
     if session.get('logged_in'):
         if session['logged_in'] is True:
             return redirect(url_for('index', title="Logged In"))
-#get user to login and check password in database against login
+#get user to login and check password in database against password used to login
     form = LoginForm()
     if form.validate_on_submit():
         user = mongo.db.user
@@ -46,7 +46,7 @@ def login():
                 session['username'] = request.form['username']
                 session['logged_in'] = True
                 return redirect(url_for('index', title="Logged In", form='form'))
-            flash('Invalid Username or Password')    
+            flash('Invalid Username or Password', 'alert-danger')    
     return render_template("login.html", title="Logged In", form=form)
 
 #register user
@@ -65,7 +65,7 @@ def register():
             session['username'] = request.form['username']
             flash('Your Account has been created, You can now login', 'alert-success')
             return redirect(url_for('login'))
-        flash('That username already exists, Please try again')
+        flash('That username already exists, Please try again', 'alert-danger')
         return redirect(url_for('register'))
     return render_template("register.html", title='Register', form=form)
 
