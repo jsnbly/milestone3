@@ -46,7 +46,7 @@ def register():
         if dose_user_exist is None:
             cryptpass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
             user.insert_one({'username':request.form['username'],
-                                'password': request.form['cryptpass'],
+                                'password': cryptpass,
                                 'email':request.form['email']})
             #session['username'] = request.form['username']
             return redirect(url_for('index'))
