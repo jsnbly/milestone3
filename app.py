@@ -58,7 +58,7 @@ def get_recipe():
 #Get Shop Route
 @app.route('/get_shop')
 def get_shop():
-    return render_template("shop.html" title ='Shop')
+    return render_template("shop.html", title ='Shop')
 
 #Remove Debug flag for deployment
 if __name__ == '__main__':
