@@ -28,7 +28,7 @@ def get_recipe():
 
 #Get Shop Route
 @app.route('/get_shop')
-def get_recipe():
+def get_shop():
     return render_template("shop.html")
 
 #Remove Debug flag for deployment
