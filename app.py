@@ -41,8 +41,7 @@ def register():
         if dose_user_exist is None:
             user.insert_one({'username':request.form['username'],
                                 'password': request.form['password'],
-                                'email':request.form['email']
-                                })
+                                'email':request.form['email']})
             return redirect(url_for('index'))
         flash('That username already exists, Please try again')
         return redirect(url_for('register'))

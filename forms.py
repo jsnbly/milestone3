@@ -12,6 +12,6 @@ class AddUser(FlaskForm):
     username = StringField('Username', validators=[DataRequired(),Length(min=6, max=15)])
     password = PasswordField('Password', validators=[DataRequired(),EqualTo('passwordconfirm', message='Passwords are not the same')])
     passwordconfirm = PasswordField('Please Confirm Password')
-    email = StringField('Email Address', validators=[Length(min=6, max=35), Email()])
+# email = StringField('Email Address', validators=[Length(min=6, max=35), Email()])
     submit = SubmitField('Register Account')
     
