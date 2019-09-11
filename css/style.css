@@ -1,5 +1,5 @@
 .jumbotron {
-    background-image: url("https://github.com/jsnbly/milestone3/blob/master/static/images/jumbotron1.jpg");
+    background-image: url("/images/jumbotron1.jpg");
     background-size: cover;
     color: black;
     font-weight: bold;

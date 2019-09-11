@@ -45,7 +45,7 @@ def login():
             if bcrypt.hashpw(request.form['password'].encode('utf-8'), user_login['password']) == user_login['password']:
                 session['username'] = request.form['username']
                 session['logged_in'] = True
-                return redirect(url_for('index', title="Sign In", form='form'))
+                return redirect(url_for('index', title="Loggedin", form='form'))
             flash('Invalid Username or Password')    
     return render_template("login.html", title="Loggedin", form=form)
 
@@ -80,12 +80,25 @@ def logout():
 #Get Recipe Route ADMIN
 @app.route('/get_recipe')
 def get_recipe():
+
     return render_template("recp_view.html", recipes=mongo.db.recipe.find())
 
 #Add Recipe Route
-@app.route('/add_recipe')
+@app.route('/add_recipe' methods=['GET', 'POST'])
 def add_recipe():
-    return render_template("add_recipe.html", title='Add a New Recipe')
+
+  form = AddRecipe(request.form)
+    if form.validate_on_submit():
+        user = mongo.db.user
+        user.insert_one({'title':request.form['title'],
+                                'author':session['username'],
+                                'dish_type': request.form['dish_type'],
+                                'ingredient':request.form['ingredient']
+                                'instruction':request.form['instruction']
+                                'votes':0})
+        return redirect(url_for('index', title='Recipe Added'))
+
+    return render_template("add_recipe.html", title='Add a New Recipe' form=form)
 
 #Get Shop Route
 @app.route('/get_shop')
