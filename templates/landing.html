@@ -3,17 +3,31 @@
 {% block content %}
 
 <!--Jumbotron-->
-    <div class="jumbotron">
-        <div class="container" id="jumbotron-text">
+{% if 'username' not in session %}
+  <div class="jumbotron">
+      <div class="container" id="jumbotron-text">
         <h1 class="display-4">Lets get Cooking</h1>
-        <p class="lead" >Share and Find new Recipes from all over the world</p>
+        <p class="lead" >Find and Share new Recipes from all over the world</p>
         <hr class="my-4">
         <p>Join our Community and add your own Recipes</p>
         <p class="lead">
-          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+          <a class="btn btn-primary btn-lg" href="{{url_for('register')}}" role="button">Sign Up</a>
         </p>
-        </div>
       </div>
+  </div>
+{% else %}
+  <div class="jumbotron">
+    <div class="container" id="jumbotron-text">
+    <h1 class="display-4">Lets get Cooking</h1>
+    <p class="lead" >Check out our Brand New Range of Kitchen Ware</p>
+    <hr class="my-4">
+    <p>Industry Leading Kitchen Ware from CookIT</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="{{url_for('register')}}" role="button">Shop Now</a>
+    </p>
+    </div>
+  </div>
+{% endif %}
 
 <!--Sample Recipe section-->
 

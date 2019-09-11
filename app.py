@@ -32,11 +32,11 @@ def get_user():
 #Login user
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-
+#check to see if user in session
     if session.get('logged_in'):
         if session['logged_in'] is True:
             return redirect(url_for('index', title="Loggedin"))
-    
+#get user to login and check password in database against login
     form = LoginForm()
     if form.validate_on_submit():
         user = mongo.db.user
@@ -47,7 +47,7 @@ def login():
                 session['logged_in'] = True
                 return redirect(url_for('index', title="Sign In", form='form'))
             flash('Invalid Username or Password')    
-    return render_template("login.html", title="Sign In", form=form)
+    return render_template("login.html", title="Loggedin", form=form)
 
 #register user
 @app.route('/register', methods=['GET', 'POST'])
