@@ -137,7 +137,8 @@ In addition, if it is not obvious, you should also describe how to run your code
 ### Media
 - The photos used in this site were obtained from ...
 - 
-Bootstrap4 theme https://startbootstrap.com/themes/landing-page/ used for inspiration  
+Favicon from https://www.freefavicon.com  
+Other Images from Google Images and https://pixabay.com  Used for educational purpose only.  
 
 ### Acknowledgements
 
