@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" type="image/x-icon" href="../static/icons/favicon.ico">
-    <title>Online Cookbook</title>
+    <title>{{title}} - The Online Cookbook</title>
 </head>
 <body>
 
@@ -29,7 +29,7 @@
                       <a class="nav-link" href="{{url_for('get_recipe')}}">Recipe</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link disabled" href="{{url_for('login')}}">Users</a>
+                      <a class="nav-link disabled" href="{{url_for('register')}}">Register</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link disabled" href="{{url_for('get_shop')}}">Shop</a>
@@ -42,35 +42,9 @@
                 </div>
               </nav>
 
-<!--Jumbotron-->
-    <div class="jumbotron">
-        <div class="container" id="jumbotron-text">
-        <h1 class="display-4">Lets get Cooking</h1>
-        <p class="lead" >Share and Find new Recipes from all over the world</p>
-        <hr class="my-4">
-        <p>Join our Community and add your own Recipes</p>
-        <p class="lead">
-          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-        </p>
-        </div>
-      </div>
-
-<!--Sample Recipe section-->
-
-<div class="container recipesection">
-  <div class="row">
-    <div class="col-lg-6">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit impedit facilis voluptates nostrum maxime quam officiis quaerat nobis earum, laborum porro corrupti velit. Est voluptatem veritatis laudantium doloribus debitis deleniti. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora aperiam, corporis commodi non temporibus vel possimus eum. Unde excepturi facilis aliquid voluptate consectetur. Veritatis aliquam repellendus vero soluta illo ab?</div>
-    <div class="col-lg-6"><img src="../static/images/veg1.jpg" alt="Veg Image" class="img-fluid"> </div>
-  </div>
-</div>
-
-
-<div class="container recipesection">
-    <div class="row">
-      <div class="col-lg-6"><img src="../static/images/veg1.jpg" alt="Veg Image" class="img-fluid"> </div>
-      <div class="col-lg-6">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit impedit facilis voluptates nostrum maxime quam officiis quaerat nobis earum, laborum porro corrupti velit. Est voluptatem veritatis laudantium doloribus debitis deleniti. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora aperiam, corporis commodi non temporibus vel possimus eum. Unde excepturi facilis aliquid voluptate consectetur. Veritatis aliquam repellendus vero soluta illo ab?</div>
-    </div>
-  </div>
+<!--Jinja templating-->
+              {% block content %}
+              {% endblock %}
 
 <!--Footer-->
 <div class="container text-center text-md-left">
