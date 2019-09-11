@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from forms import LoginForm, AddUser
@@ -38,9 +38,7 @@ def register():
     if form.validate_on_submit():
         user = mongo.db.user
         dose_user_exist = user.find.one({'username':request.form['username']})
-
         if dose_user_exist is None:
-
             user.insert_one({'username':request.form['username'],
                                 'password': request.form['password'],
                                 'email':request.form['email']
