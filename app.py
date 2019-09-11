@@ -46,7 +46,7 @@ def login():
             session['logged_in'] = True
             return redirect(url_for('index', title="Sign In", form='form'))
         flash('Invalid Username or Password')    
-return render_template("login.html", title="Sign In", form=form)
+    return render_template("login.html", title="Sign In", form=form)
 
 #register user
 @app.route('/register', methods=['GET', 'POST'])
