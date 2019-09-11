@@ -18,7 +18,7 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template("base.html")
+    return render_template("base2.html")
 
 #User Routes
 
@@ -32,7 +32,7 @@ def login():
     form = LoginForm()
     return render_template('login.html', title='Sign In', form=form)
 
-@app.route('/register' methods=['GET', 'POST'])
+@app.route('/register' method=['GET', 'POST'])
 def login():
     form = AddUser(request.form)
     if form.validate_on_submit():
