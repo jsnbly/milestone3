@@ -3,7 +3,7 @@ import bcrypt
 from flask import Flask, render_template, redirect, request, url_for, flash, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-from forms import LoginForm, AddUser
+from forms import LoginForm, AddUser, AddRecipe
 
 app = Flask(__name__)
 
@@ -84,21 +84,15 @@ def get_recipe():
     return render_template("recp_view.html", recipes=mongo.db.recipe.find())
 
 #Add Recipe Route
-@app.route('/add_recipe' methods=['GET', 'POST'])
+@app.route('/add_recipe', methods=['GET', 'POST'])
 def add_recipe():
 
   form = AddRecipe(request.form)
-    if form.validate_on_submit():
-        user = mongo.db.user
-        user.insert_one({'title':request.form['title'],
-                                'author':session['username'],
-                                'dish_type': request.form['dish_type'],
-                                'ingredient':request.form['ingredient']
-                                'instruction':request.form['instruction']
-                                'votes':0})
+  if form.validate_on_submit():
+        recipedb = mongo.db.recipe
+        recipedb.insert_one({'title':request.form['title'],'author':session['username'],'dish_type': request.form['dish_type'],'ingredient':request.form['ingredient'],'instruction':request.form['instruction'],'votes':0})
         return redirect(url_for('index', title='Recipe Added'))
-
-    return render_template("add_recipe.html", title='Add a New Recipe' form=form)
+  return render_template("add_recipe.html", title='Add a New Recipe', form=form)
 
 #Get Shop Route
 @app.route('/get_shop')
