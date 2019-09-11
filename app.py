@@ -48,7 +48,7 @@ def register():
             user.insert_one({'username':request.form['username'],
                                 'password': cryptpass,
                                 'email':request.form['email']})
-            #session['username'] = request.form['username']
+            session['username'] = request.form['username']
             return redirect(url_for('index'))
         flash('That username already exists, Please try again')
         return redirect(url_for('register'))
