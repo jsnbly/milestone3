@@ -30,7 +30,7 @@ def get_user():
     return render_template("user.html", users=mongo.db.user.find())
 
 #Login user
-@app.route('/login' methods=['POST'])
+@app.route('/login', methods=['POST'])
 def login():
     form = LoginForm()
     user = mongo.db.user
