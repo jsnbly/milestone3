@@ -38,14 +38,15 @@ def login():
             return redirect(url_for('index', title="Sign In"))
     
     form = LoginForm()
-    user = mongo.db.user
-    user_login = user.find_one({'username' : request.form['username']})
-    if user_login:
-        if bcrypt.hashpw(request.form['password'].encode('utf-8'), user_login['password'].encode('utf-8')) == user_login['password'].encode('utf-8'):
-            session['username'] = request.form['username']
-            session['logged_in'] = True
-            return redirect(url_for('index', title="Sign In", form='form'))
-        flash('Invalid Username or Password')    
+    if form.validate_on_submit():
+        user = mongo.db.user
+        user_login = user.find_one({'username' : request.form['username']})
+        if user_login:
+            if bcrypt.hashpw(request.form['password'].encode('utf-8'), user_login['password'].encode('utf-8')) == user_login['password'].encode('utf-8'):
+                session['username'] = request.form['username']
+                session['logged_in'] = True
+                return redirect(url_for('index', title="Sign In", form='form'))
+            flash('Invalid Username or Password')    
     return render_template("login.html", title="Sign In", form=form)
 
 #register user
