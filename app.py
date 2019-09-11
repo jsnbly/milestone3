@@ -36,7 +36,7 @@ def login():
 def register():
     form = AddUser(request.form)
     if form.validate_on_submit():
-        users= mongo.db.user
+        user = mongo.db.user
         dose_user_exist = user.find.one({'username':request.form['username']})
 
         if dose_user_exist is None:
