@@ -42,7 +42,7 @@ def login():
         user = mongo.db.user
         user_login = user.find_one({'username' : request.form['username']})
         if user_login:
-            if bcrypt.hashpw(request.form['password'].encode('utf-8'), user_login['password'].encode('utf-8')) == user_login['password'].encode('utf-8'):
+            if bcrypt.hashpw(request.form['password'].encode('utf-8'), user_login['password']) == user_login['password']:
                 session['username'] = request.form['username']
                 session['logged_in'] = True
                 return redirect(url_for('index', title="Sign In", form='form'))
