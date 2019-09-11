@@ -35,7 +35,7 @@ def login():
 
     if session.get('logged_in'):
         if session['logged_in'] is True:
-            return redirect(url_for('index', title="Sign In"))
+            return redirect(url_for('index', title="Loggedin"))
     
     form = LoginForm()
     if form.validate_on_submit():
