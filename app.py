@@ -30,10 +30,18 @@ def get_user():
     return render_template("user.html", users=mongo.db.user.find())
 
 #Login user
-@app.route('/login')
+@app.route('/login' methods=['POST'])
 def login():
     form = LoginForm()
-    return render_template("login.html", title="Sign In", form=form)
+    user = mongo.db.user
+    user_login = user.find_one({'username' : request.form['username']})
+    if user_login:
+        if bcrypt.hashpw(request.form['password'].encode('utf-8'), user_login['password'].encode('utf-8')) == user_login['password'].encode('utf-8'):
+            session['username'] = request.form['username']
+            return redirect(url_for('index'))
+        return 'Invalid Username or Password'    
+
+   # return render_template("login.html", title="Sign In", form=form)
 
 #register user
 @app.route('/register', methods=['GET', 'POST'])
