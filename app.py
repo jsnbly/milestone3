@@ -42,12 +42,13 @@ def register():
     if form.validate_on_submit():
         user = mongo.db.user
         dose_user_exist = user.find_one({'username':request.form['username']})
-        cryptpass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
+       
         if dose_user_exist is None:
+            cryptpass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
             user.insert_one({'username':request.form['username'],
                                 'password': request.form['cryptpass'],
                                 'email':request.form['email']})
-            session['username'] = request.form['username']
+            #session['username'] = request.form['username']
             return redirect(url_for('index'))
         flash('That username already exists, Please try again')
         return redirect(url_for('register'))
