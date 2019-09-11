@@ -41,7 +41,7 @@ def login():
             return redirect(url_for('index'))
         return 'Invalid Username or Password'    
 
-   # return render_template("login.html", title="Sign In", form=form)
+return render_template("login.html", title="Sign In", form=form)
 
 #register user
 @app.route('/register', methods=['GET', 'POST'])
