@@ -24,7 +24,7 @@ def index():
 
 #User Routes
 
-#Get User Route ADMIN
+#Get User Route ADMIN Testing
 @app.route('/get_user')
 def get_user():
     return render_template("user.html", users=mongo.db.user.find())
@@ -35,7 +35,7 @@ def login():
 #check to see if user in session
     if session.get('logged_in'):
         if session['logged_in'] is True:
-            return redirect(url_for('index', title="Loggedin"))
+            return redirect(url_for('index', title="Logged In"))
 #get user to login and check password in database against login
     form = LoginForm()
     if form.validate_on_submit():
@@ -45,9 +45,9 @@ def login():
             if bcrypt.hashpw(request.form['password'].encode('utf-8'), user_login['password']) == user_login['password']:
                 session['username'] = request.form['username']
                 session['logged_in'] = True
-                return redirect(url_for('index', title="Loggedin", form='form'))
+                return redirect(url_for('index', title="Logged In", form='form'))
             flash('Invalid Username or Password')    
-    return render_template("login.html", title="Loggedin", form=form)
+    return render_template("login.html", title="Logged In", form=form)
 
 #register user
 @app.route('/register', methods=['GET', 'POST'])
@@ -63,7 +63,7 @@ def register():
                                 'password': cryptpass,
                                 'email':request.form['email']})
             session['username'] = request.form['username']
-            flash('Your Account has been created, You can now login', 'success')
+            flash('Your Account has been created, You can now login', 'alert-success')
             return redirect(url_for('login'))
         flash('That username already exists, Please try again')
         return redirect(url_for('register'))
@@ -90,8 +90,9 @@ def add_recipe():
   form = AddRecipe(request.form)
   if form.validate_on_submit():
         recipedb = mongo.db.recipe
-        recipedb.insert_one({'title':request.form['title'],'author':session['username'],'dish_type': request.form['dish_type'],'ingredient':request.form['ingredient'],'instruction':request.form['instruction'],'votes':0})
-        return redirect(url_for('index', title='Recipe Added'))
+        recipedb.insert_one({'title':request.form['title'],'author':session['username'],'dish_type': request.form['dish_type'],'ingredient':request.form['ingredient'],'instruction':request.form['instruction'],'votes':0,'visits':0})
+        flash('Your Recipe has been added', 'alert-success')
+        return redirect(url_for('add_recipe', title='Recipe Added'))
   return render_template("add_recipe.html", title='Add a New Recipe', form=form)
 
 #Get Shop Route
