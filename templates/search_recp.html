@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% for recipe in results %}
+
+        <h1>{{ recipe.title }}</h1>
+        <h1>{{ recipe.allergen }}</h1>
+
+    {% endfor %}
+
+{% endblock %}

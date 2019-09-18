@@ -1,5 +1,6 @@
 import os
 import bcrypt
+import re
 from flask import Flask, render_template, redirect, request, url_for, flash, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -47,7 +48,7 @@ def login():
                 session['logged_in'] = True
                 return redirect(url_for('index', title="Logged In", form='form'))
             flash('Invalid Username or Password', 'alert-danger')    
-    return render_template("login.html", title="Logged In", form=form)
+    return render_template("login.html", title="Log In", form=form)
 
 #register user
 @app.route('/register', methods=['GET', 'POST'])
@@ -83,6 +84,20 @@ def get_recipe():
 
     return render_template("recp_view.html", recipes=mongo.db.recipe.find())
 
+#Search Recipes
+@app.route('/search_recp')
+def search_recp():
+    original_query = request.args['query']
+    query= {'$regex': re.compile('.*{}.*'.format(original_query)), '$options':'i'}
+    results = mongo.db.recipes.find({
+        '$or':[
+            {'title': query},
+            {'ingredients': query},
+            {'allergen': query},
+        ]
+    })
+    return render_template('search_recp.html', query=original_query, results=results)
+
 #Add Recipe Route
 @app.route('/add_recipe', methods=['GET', 'POST'])
 def add_recipe():
@@ -99,7 +114,7 @@ def add_recipe():
 @app.route('/get_shop')
 def get_shop():
     return render_template("shop.html", title='Shop')
-    
+
 #remove debug flag for deployment
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
