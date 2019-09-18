@@ -98,10 +98,11 @@ def add_recipe():
 #Get Shop Route
 @app.route('/get_shop')
 def get_shop():
- 
+    return render_template("shop.html", title='Shop')
+    
 #remove debug flag for deployment
-    if __name__ == '__main__':
-         app.run(host=os.environ.get('IP'),
+if __name__ == '__main__':
+    app.run(host=os.environ.get('IP'),
            port=int(os.environ.get('PORT')),
            debug=True)
 
