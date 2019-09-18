@@ -7,6 +7,11 @@ from forms import LoginForm, AddUser, AddRecipe
 
 app = Flask(__name__)
 
+#MongoDB Local Host testing settings
+#app.config["MONGO_URI"]= "mongodb://localhost:27017/codeinst"
+#Junk Secret Key 
+#app.config["SECRET_KEY"]= "SECRETKEY123"
+
 #MongoDB Atlas config linked to Enviroment Variables in Heroku Settings
 app.config["MONGO_DBNAME"] = 'cimilestone3'
 app.config["MONGO_URI"] = os.environ.get("MONGODB_URI")
@@ -98,10 +103,11 @@ def add_recipe():
 #Get Shop Route
 @app.route('/get_shop')
 def get_shop():
-    return render_template("shop.html", title='Shop')
-
-#Remove Debug flag for deployment
+ 
+#remove debug flag for deployment
 if __name__ == '__main__':
-    app.run(host=os.environ.get('IP'),
-            port=int(os.environ.get('PORT')),
-            debug=True)
+   app.run(host=os.environ.get('IP'),
+           port=int(os.environ.get('PORT')),
+           debug=True)
+
+    
