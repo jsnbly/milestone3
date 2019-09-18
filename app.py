@@ -7,11 +7,6 @@ from forms import LoginForm, AddUser, AddRecipe
 
 app = Flask(__name__)
 
-#MongoDB Local Host testing settings
-#app.config["MONGO_URI"]= "mongodb://localhost:27017/codeinst"
-#Junk Secret Key 
-#app.config["SECRET_KEY"]= "SECRETKEY123"
-
 #MongoDB Atlas config linked to Enviroment Variables in Heroku Settings
 app.config["MONGO_DBNAME"] = 'cimilestone3'
 app.config["MONGO_URI"] = os.environ.get("MONGODB_URI")
