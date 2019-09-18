@@ -105,8 +105,8 @@ def add_recipe():
 def get_shop():
  
 #remove debug flag for deployment
-if __name__ == '__main__':
-   app.run(host=os.environ.get('IP'),
+    if __name__ == '__main__':
+         app.run(host=os.environ.get('IP'),
            port=int(os.environ.get('PORT')),
            debug=True)
 
