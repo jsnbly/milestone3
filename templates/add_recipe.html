@@ -23,8 +23,15 @@
         </p>
         <p>
             {{ form.dish_type.label }}<br>
-            {{ form.dish_type(size=50) }}
+            {{ form.dish_type(size=1) }}
             {% for error in form.dish_type.errors %}
+                <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.discription.label }}<br>
+            {{ form.dish_type(cols="30", rows="10") }}
+            {% for error in form.discription.errors %}
                 <span style="color: red;">{{ error }}</span>
             {% endfor %}
         </p>

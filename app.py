@@ -105,7 +105,7 @@ def add_recipe():
   form = AddRecipe(request.form)
   if form.validate_on_submit():
         recipedb = mongo.db.recipe
-        recipedb.insert_one({'title':request.form['title'],'author':session['username'],'dish_type': request.form['dish_type'],'ingredient':request.form['ingredient'],'instruction':request.form['instruction'],'votes':0,'visits':0})
+        recipedb.insert_one({'title':request.form['title'],'author':session['username'],'dish_type': request.form['dish_type'],'discription': request.form['discription'],'ingredient':request.form['ingredient'],'instruction':request.form['instruction'],'votes':0,'visits':0})
         flash('Your Recipe has been added', 'alert-success')
         return redirect(url_for('add_recipe', title='Recipe Added'))
   return render_template("add_recipe.html", title='Add a New Recipe', form=form)
