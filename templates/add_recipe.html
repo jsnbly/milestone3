@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<center>
 <h1>Add a New Recipe</h1>
     {% with messages = get_flashed_messages() %}
     {% if messages %}
@@ -30,14 +31,14 @@
         </p>
         <p>
             {{ form.discription.label }}<br>
-            {{ form.dish_type(cols="30", rows="10") }}
+            {{ form.discription(cols="60", rows="5") }}
             {% for error in form.discription.errors %}
                 <span style="color: red;">{{ error }}</span>
             {% endfor %}
         </p>
         <p>
             {{ form.ingredient.label }}<br>
-            {{ form.ingredient(cols="30", rows="10") }}
+            {{ form.ingredient(cols="60", rows="10") }}
             {% for error in form.ingredient.errors %}
                 <span style="color: red;">{{ error }}</span>
             {% endfor %}
@@ -51,4 +52,5 @@
         </p>
         <p>{{ form.submit() }}</p>
     </form>
+    </center>
 {% endblock %}
