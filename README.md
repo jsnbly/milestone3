@@ -1,5 +1,8 @@
-# Milestone 3 Data Centric Development   
-Online Cookbook - The brief for this project was to design and build an online Recipe Book to give the site owner a way to promote their brand of cooking tools by give external users a way to share recipes with other users on the site.
+# Milestone 3 Data Centric Development  
+
+Access Project on Heroku here - https://online-cookbookms3.herokuapp.com/  
+
+An Online Cookbook - The brief for this project was to design and build an online Recipe Book to give the site owner a way to promote their brand of cooking tools by give external users a way to share recipes with other users on the site.
 
 # Project Requirements  
 Main Technologies  
@@ -14,10 +17,9 @@ Structure: Incorporate a main navigation menu and structured layout
 Documentation: Write a README.md files for your project that explains what the project dose and the value that it provides to its users.  
 Version control: Use Git & GitHug for version control.  
 Attribution: Maintain clear separation netween code written by you and code from external sources. Attribute any code from external sources via comments above the code and for larger dependencies in the README.  
-Deployment:Deply the final version of your code to a hosting plaform such as Heroku.  
+Deployment:Deploy the final version of your code to a hosting plaform such as Heroku.  
 
 # Project Idea  
-
 External User Goals  
 -Find and Share Recipes  
 
@@ -63,7 +65,11 @@ This section is also where you would share links to any wireframes, mockups, dia
 
 ## Features
 
-In this section, you should go over the different parts of your project, and describe each in a sentence or so.
+Index: Main Home Page Displays Top Five Recipies by Votes  
+User Registration Page:  Allows the user to create a user account  
+User Login Page:  Allows the user to Login to their existing account  
+Search Box in Nav Bar: Allows the user to search for recipies  
+Shop Page: Shows the user a range of the site owners products currently for sale  
  
 ### Existing Features
 - Feature 1 - allows users X to achieve Y, by having them fill out Z
@@ -77,17 +83,14 @@ In addition, you may also use this section to discuss plans for additional featu
 - Another feature idea
 
 ## Technologies Used
-
 HTML  
 CSS  
 JQuery  
 Bootstrap 4  
 Python  
 Flask  
-Flask Forms  
+WT-Forms  
 Mongodb  
-
-
 
 ## Testing
 
@@ -121,12 +124,11 @@ In particular, you should provide all details of the differences between the dep
 In addition, if it is not obvious, you should also describe how to run your code locally.
 
 
-1.  Create a new Workspace in AWS Cloud9  
-2.  Install Flask through the terminal with pip3 install flask  
-3.  Create app.py file with basic flask structure 
-4.  Test flask is working by running app.py through terminal with python3 app.py and then preview running application. 
-5.  Install Flask Forms with pip3 install Flask-WTF (Used for form validation)
-5.  
+1.  Setup a new workspace for yourself to develop in, For this project I used VSCode but AWS Cloud9 will also work    
+2.  Clone the repositiory using git clone into your desired directory  
+3.  Open a Terminal in the current directory and run pip install -r requirements.txt to satisfy project dependancies  
+4.  Create a MongoDB Collection  ... 
+    
 
 
 ## Credits

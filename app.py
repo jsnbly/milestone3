@@ -89,7 +89,7 @@ def get_recipe():
 def search_recp():
     original_query = request.args['query']
     query= {'$regex': re.compile('.*{}.*'.format(original_query)), '$options':'i'}
-    results = mongo.db.recipes.find({
+    results = mongo.db.cimilestone3.find({
         '$or':[
             {'title': query},
             {'ingredients': query},
