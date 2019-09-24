@@ -31,21 +31,21 @@
         </p>
         <p>
             {{ form.discription.label }}<br>
-            {{ form.discription(cols="60", rows="5") }}
+            {{ form.discription(cols="50", rows="5") }}
             {% for error in form.discription.errors %}
                 <span style="color: red;">{{ error }}</span>
             {% endfor %}
         </p>
         <p>
             {{ form.ingredient.label }}<br>
-            {{ form.ingredient(cols="60", rows="10") }}
+            {{ form.ingredient(cols="50", rows="10") }}
             {% for error in form.ingredient.errors %}
                 <span style="color: red;">{{ error }}</span>
             {% endfor %}
         </p>
         <p>
             {{ form.instruction.label }}<br>
-            {{ form.instruction(cols="60", rows="10") }}
+            {{ form.instruction(cols="50", rows="10") }}
             {% for error in form.ingredient.errors %}
                 <span style="color: red;">{{ error }}</span>
             {% endfor %}
