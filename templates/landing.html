@@ -32,7 +32,8 @@
 <!--Sample Recipe section-->
 <h1>Top 3 Recipes</h1>
 {% for recipe in recipes %}
-<div class="container recipesection">
+  {% if loop.index % 2 != 0 %}
+  <div class="container recipesection">
     <div class="row">
         <div class="col-lg-6"><img src="{{recipe.image}}" alt="Image" class="img-fluid"> </div>
         <div class="col-lg-6"><h1>{{ recipe.title }}</h1> <br>By({{ recipe.author }}) (Votes:{{ recipe.votes }})<br> 
@@ -42,6 +43,7 @@
         </div>
         </div>
     </div>
+    {% else %}
     <div class="container recipesection">
         <div class="row">
             <div class="col-lg-6"><h1>{{ recipe.title }}</h1> <br>By({{ recipe.author }}) (Votes:{{ recipe.votes }})<br> 
@@ -52,6 +54,7 @@
             <div class="col-lg-6"><img src="{{recipe.image}}" alt="Image" class="img-fluid"> </div>
             </div>
         </div>
+    {% endif %} 
 {% endfor %}
 
 
