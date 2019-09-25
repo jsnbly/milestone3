@@ -68,18 +68,42 @@
     </div>
     <hr class="clearfix w-100 d-md-none pb-3">
     <div class="col-md-3 mb-md-0 mb-3">
-      <h5 class="text-uppercase">Links</h5>
+      <h5 class="text-uppercase">Site Links</h5>
       <ul class="list-unstyled">
+        {% if 'username' not in session %}
         <li>
-          <a href="http://www.facebook.com" target="_blank">Facebook</a>
+          <a href="{{url_for('login')}}">Login</a>
+          </li>
+        <li>
+          <a href="{{url_for('register')}}">Register</a>
+        </li>
+        {% else %}
+        <li>
+          <a href="{{url_for('logout')}}">Logout</a>
+        </li>
+        <li>
+          <a href="{{url_for('add_recipe')}}">Add Recipe</a>
+        </li>
+        {% endif %}
+        <li>
+          <a href="{{url_for('get_recipe')}}">Recipe</a>
+        </li>
+        <li>
+          <a href="{{url_for('get_shop')}}">Shop</a>
         </li>
        </ul>
     </div>
     <div class="col-md-3 mb-md-0 mb-3">
-      <h5 class="text-uppercase">Links</h5>
+      <h5 class="text-uppercase">Social Links</h5>
       <ul class="list-unstyled">
         <li>
+          <a href="http://www.facebook.com" target="_blank">Facebook</a>
+        </li>
+        <li>
           <a href="http://www.instagram.com" target="_blank">Instagram</a>
+        </li>
+        <li>
+          <a href="http://www.snapchat.com" target="_blank">Snapchat</a>
         </li>
        </ul>
     </div>

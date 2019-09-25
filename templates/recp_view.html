@@ -1,12 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block content %}
+        <div class="container recipesection">
+            <div class="row">
+                <div class="col-lg-6"><img src="{{recipe.image}}" alt="Image" class="img-fluid"> </div>
+                <div class="col-lg-6"><h1>{{ recipe.title }}</h1> <br>By({{ recipe.author }}) (Votes:{{ recipe.votes }})<br> 
+                    <p>{{ recipe.discription }}</p><br>Ingredients:{{ recipe.ingredients }}, Allergens:{{ recipe.allergen }}<br>
+                    Instruction:{{ recipe.instructions }}
+                
+                </div>
+                </div>
+            </div>
+
+<!-- to be removed leaving in to test schema-->
     {% for recipe in recipes %}
         {{ recipe.title }}
         {{ recipe.author }}
@@ -17,5 +23,6 @@
         {{ recipe.allergen }}
         {{ recipe.instructions }}
     {% endfor %}
-</body>
-</html>
+
+    
+  {% endblock %}
