@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+    {% for recipe in recipes %}
         <div class="container recipesection">
             <div class="row">
                 <div class="col-lg-6"><img src="{{recipe.image}}" alt="Image" class="img-fluid"> </div>
@@ -11,7 +12,7 @@
                 </div>
                 </div>
             </div>
-
+    {% endfor %}
 <!-- to be removed leaving in to test schema-->
     {% for recipe in recipes %}
         {{ recipe.title }}
