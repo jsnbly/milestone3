@@ -88,6 +88,8 @@ def get_recipe():
 @app.route('/search_recp', methods=['GET', 'POST'])
 def search_recp():
 
+    query=request.form
+
     results = mongo.db.cimilestone3.find({
         '$text':[
             {'title': query},
@@ -96,7 +98,7 @@ def search_recp():
             {'dish_type': query},
         ]
     })
-    return render_template('search_recp.html', results=result, form=form)
+    return render_template('search_recp.html', results=result,)
 
 #Add Recipe Route
 @app.route('/add_recipe', methods=['GET', 'POST'])
