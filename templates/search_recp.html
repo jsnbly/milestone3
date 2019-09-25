@@ -1,12 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-    {% for recipe in results %}
-
-        <h1>{{ recipe.title }}</h1>
-        <h1>{{ recipe.allergen }}</h1>
-
-    {% endfor %}
+{% for result in results %}
+    <div class="container recipesection">
+        <div class="row">
+            <div class="col-lg-6"><img src="{{result.image}}" alt="Image" class="img-fluid"> </div>
+            <div class="col-lg-6"><h1>{{ result.title }}</h1> <br>By({{ result.author }}) (Votes:{{ result.votes }})<br> 
+                <p>{{ result.discription }}</p><br>Ingredients:{{ result.ingredients }}, Allergens:{{ result.allergen }}<br>
+                Instruction:{{ result.instructions }}
+            
+            </div>
+            </div>
+        </div>
+{% endfor %}
 
 {% endblock %}

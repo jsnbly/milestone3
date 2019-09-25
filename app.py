@@ -85,18 +85,18 @@ def get_recipe():
     return render_template("recp_view.html", recipes=mongo.db.recipe.find())
 
 #Search Recipes
-@app.route('/search_recp')
+@app.route('/search_recp', methods=['GET', 'POST'])
 def search_recp():
-    original_query = request.args['query']
-    query= {'$regex': re.compile('.*{}.*'.format(original_query)), '$options':'i'}
+
     results = mongo.db.cimilestone3.find({
-        '$or':[
+        '$text':[
             {'title': query},
             {'ingredients': query},
             {'allergen': query},
+            {'dish_type': query},
         ]
     })
-    return render_template('search_recp.html', query=original_query, results=results)
+    return render_template('search_recp.html', results=result, form=form)
 
 #Add Recipe Route
 @app.route('/add_recipe', methods=['GET', 'POST'])
