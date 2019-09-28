@@ -44,8 +44,8 @@
             {% endfor %}
         </p>
         <p>
-            {{ form.instruction.label }}<br>
-            {{ form.instruction(cols="50", rows="10") }}
+            {{ form.instructions.label }}<br>
+            {{ form.instructions(cols="50", rows="10") }}
             {% for error in form.ingredient.errors %}
                 <span style="color: red;">{{ error }}</span>
             {% endfor %}
