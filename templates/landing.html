@@ -48,7 +48,7 @@
   <div class="container userrecipesection">
     <div class="row">
       <h1>Hey {{ recipe.author }}, Welcome Back...</h1>
-      {% for recipe in recipes if recipe.author == username %}
+      {% for recipe in recipes if {{recipe.author}} == 'username' %}
         <div class="col-lg-6"><h1>{{ recipe.title }}</h1><br>By({{ recipe.author }}) (Votes:{{ recipe.votes }})<br> 
           <p>{{ recipe.discription }}</p><br>
           <a href="#" class="btn-success" role="button">See Recipe</a>
