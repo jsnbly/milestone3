@@ -47,7 +47,7 @@
 {% else %}
   <div class="container userrecipesection">
     <div class="row">
-      {% for recipe in recipes if recipe.author == 'username' %}
+      {% for recipe in recipes %}
       <h1>Hey {{ recipe.author }}, Welcome Back...</h1>
         <div class="col-lg-6"><h1>{{ recipe.title }}</h1><br>By({{ recipe.author }}) (Votes:{{ recipe.votes }})<br> 
           <p>{{ recipe.discription }}</p><br>
