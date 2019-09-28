@@ -47,9 +47,8 @@
 {% else %}
   <div class="container userrecipesection">
     <div class="row">
+      {% for recipe in recipes if recipe.author == 'username' %}
       <h1>Hey {{ recipe.author }}, Welcome Back...</h1>
-      {% set is_user = recipe.author %}
-      {% for recipe in recipes if is_user == 'username' %}
         <div class="col-lg-6"><h1>{{ recipe.title }}</h1><br>By({{ recipe.author }}) (Votes:{{ recipe.votes }})<br> 
           <p>{{ recipe.discription }}</p><br>
           <a href="#" class="btn-success" role="button">See Recipe</a>
@@ -57,6 +56,7 @@
           <a href="#" class="btn-danger" role="button">Delete Recipe</a>
         </div>
       {% else %}
+      <h1>Hey {{ recipe.author }}, Welcome Back...</h1>
         <p>You Currently have no recipes added, Would you like to add one now?</p>
         <a href="{{url_for('add_recipe')}}" class="btn-success" role="button">Add New Recipe</a>
       {% endfor %}
