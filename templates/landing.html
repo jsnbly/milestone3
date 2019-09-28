@@ -45,15 +45,15 @@
     
 {% endfor %}
 {% else %}
-  <div class="container userrecipesection">
+  <div class="container">
     <div class="row"></div>
     <h1>Hey {{ session['username'] }}, Welcome to your Profile Page</h1>
       {% for recipe in recipes if session['username'] == recipe.author %}
-          <div class="col-lg-6">Recipe Title:{{ recipe.title }}<br>By({{ recipe.author }}) (Votes:{{ recipe.votes }})<br> 
+          <div class="col-lg-6 userrecipesection">Recipe Title:{{ recipe.title }}<br>By({{ recipe.author }}) (Votes:{{ recipe.votes }})<br> 
           <p>{{ recipe.discription }}</p>
-          <a href="#" class="btn-success" role="button">See Recipe</a>
-          <a href="#" class="btn-warning" role="button">Edit Recipe</a>
-          <a href="#" class="btn-danger" role="button">Delete Recipe</a>
+          <a href="{{url_for('show_recipe', recipe_id=recipe._id)}}" class="btn btn-success" role="button">See Recipe</a>
+          <a href="#" class="btn btn-warning" role="button">Edit Recipe</a>
+          <a href="#" class="btn btn-danger" role="button">Delete Recipe</a>
         </div>
       {% else %}
         <p>You Currently have no recipes added, Would you like to add one now?</p>
@@ -63,4 +63,4 @@
 {% endif %}
 
 
-  {% endblock %}
+{% endblock %}

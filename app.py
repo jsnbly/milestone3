@@ -121,6 +121,13 @@ def edit_recipe(recipe_id):
     recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
     return render_template('edit_recipe.html', editrecp=recipe )
 
+#Show Recipe Route
+@app.route('/show_recipe/<recipe_id>')
+def show_recipe(recipe_id):
+    recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
+
+    return render_template('show_recipe.html', recipe=recipe)
+
 
 #Get Shop Route
 @app.route('/get_shop')
