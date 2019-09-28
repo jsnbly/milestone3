@@ -112,6 +112,13 @@ def add_recipe():
         return redirect(url_for('add_recipe', title='Recipe Added'))
   return render_template("add_recipe.html", title='Add a New Recipe', form=form)
 
+#Edit Recipe Route
+@app.route('/edit_recipe/<recipe_id>')
+def edit_recipe(recipe_id):
+    recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
+    return render_template('edit_recipe.html', editrecp=recipe )
+
+
 #Get Shop Route
 @app.route('/get_shop')
 def get_shop():

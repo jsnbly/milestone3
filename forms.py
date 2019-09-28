@@ -19,6 +19,6 @@ class AddRecipe(FlaskForm):
     dish_type = SelectField('Dish Type', choices=[('breakfast','Breakfast'),('lunch','Lunch'),('dinner','Dinner'),('supper','Supper'),('dessert','Dessert'),('snack','Snack')])
     discription = TextAreaField('Discription of Recipe', validators=[DataRequired()])
     ingredient = TextAreaField('Ingredients Required', validators=[DataRequired()])
-    instruction = TextAreaField('Recipe Instructions', validators=[DataRequired()])
+    instructions = TextAreaField('Recipe Instructions', validators=[DataRequired()])
     submit = SubmitField('Add Recipe')
     

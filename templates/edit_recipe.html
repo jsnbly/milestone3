@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<center>
+<h1>Edit Recipe</h1>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li class="alert-warning">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
+
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.title.label }}<br>
+            {{ form.title(size=50) }}
+            {% for error in form.title.errors %}
+                <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.dish_type.label }}<br>
+            {{ form.dish_type(size=1) }}
+            {% for error in form.dish_type.errors %}
+                <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.discription.label }}<br>
+            {{ form.discription(cols="50", rows="5") }}
+            {% for error in form.discription.errors %}
+                <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.ingredient.label }}<br>
+            {{ form.ingredient(cols="50", rows="10") }}
+            {% for error in form.ingredient.errors %}
+                <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.instruction.label }}<br>
+            {{ form.instruction(cols="50", rows="10") }}
+            {% for error in form.ingredient.errors %}
+                <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    </center>
+{% endblock %}

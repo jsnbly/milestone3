@@ -29,33 +29,38 @@
   </div>
 {% endif %}
 
-<!--Sample Recipe section-->
+{% if 'username' not in session %}
 <h1>Top 3 Recipes</h1>
 {% for recipe in recipes %}
-  {% if loop.index % 2 != 0 %}
+  
   <div class="container recipesection">
     <div class="row">
         <div class="col-lg-6"><img src="{{recipe.image}}" alt="Image" class="img-fluid"> </div>
-        <div class="col-lg-6"><h1>{{ recipe.title }}</h1> <br>By({{ recipe.author }}) (Votes:{{ recipe.votes }})<br> 
-            <p>{{ recipe.discription }}</p><br>Ingredients:{{ recipe.ingredients }}, Allergens:{{ recipe.allergen }}<br>
-            Instruction:{{ recipe.instructions }}
-        
+        <div class="col-lg-6"><h1>{{ recipe.title }}</h1><br>By({{ recipe.author }}) (Votes:{{ recipe.votes }})<br> 
+            <p>{{ recipe.discription }}</p><br>
+            <a href="#" class="btn-success" role="button">See Recipe...</a>
         </div>
         </div>
     </div>
-    {% else %}
-    <div class="container recipesection">
-        <div class="row">
-            <div class="col-lg-6"><h1>{{ recipe.title }}</h1> <br>By({{ recipe.author }}) (Votes:{{ recipe.votes }})<br> 
-                <p>{{ recipe.discription }}</p><br>Ingredients:{{ recipe.ingredients }}, Allergens:{{ recipe.allergen }}<br>
-                Instruction:{{ recipe.instructions }}
-            
-            </div>
-            <div class="col-lg-6"><img src="{{recipe.image}}" alt="Image" class="img-fluid"> </div>
-            </div>
-        </div>
-    {% endif %} 
+    
 {% endfor %}
+{% else %}
+  <div class="container userrecipesection">
+    <div class="row">
+      <h1>Hey {{ recipe.author }}, Welcome Back...</h1>
+      {% for recipe in recipes if recipe.author == username %}
+        <div class="col-lg-6"><h1>{{ recipe.title }}</h1><br>By({{ recipe.author }}) (Votes:{{ recipe.votes }})<br> 
+          <p>{{ recipe.discription }}</p><br>
+          <a href="#" class="btn-success" role="button">See Recipe</a>
+          <a href="#" class="btn-warning" role="button">Edit Recipe</a>
+          <a href="#" class="btn-danger" role="button">Delete Recipe</a>
+        </div>
+      {% else %}
+        <p>You Currently have no recipes added, Would you like to add one now?</p>
+        <a href="{{url_for('add_recipe')}}" class="btn-success" role="button">Add New Recipe</a>
+      {% endfor %}
+    </div>
+{% endif %}
 
 
   {% endblock %}
