@@ -21,7 +21,7 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template("landing.html", title='Lets get Cookin', recipes=mongo.db.recipe.find().limit(3) )
+    return render_template("landing.html", title='Lets get Cookin', recipes=mongo.db.recipe.find())
 
 #User Routes
 
@@ -98,7 +98,7 @@ def search_recp():
             {'dish_type': query},
         ]
     })
-    return render_template('search_recp.html', results=result,)
+    return render_template('search_recp.html', results=result)
 
 #Add Recipe Route
 @app.route('/add_recipe', methods=['GET', 'POST'])
