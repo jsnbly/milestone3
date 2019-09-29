@@ -24,7 +24,7 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template("landing.html", title='Lets get Cookin', recipes=mongo.db.recipe.find().limit(3) )
+    return render_template("landing.html", title='Lets get Cookin', recipes=mongo.db.recipe.find() )
 
 #User Routes
 
@@ -110,9 +110,9 @@ def add_recipe():
   form = AddRecipe(request.form)
   if form.validate_on_submit():
         recipedb = mongo.db.recipe
-        recipedb.insert_one({'title':request.form['title'],'author':session['username'],'dish_type': request.form['dish_type'],'discription': request.form['discription'],'ingredient':request.form['ingredient'],'instruction':request.form['instruction'],'votes':0,'visits':0})
+        recipedb.insert_one({'title':request.form['title'],'author':session['username'], 'tags': request.form['tags'], 'image': request.form['image'], 'discription': request.form['discription'],'ingredient':request.form['ingredient'],'instructions':request.form['instructions'],'votes':0,'visits':0})
         flash('Your Recipe has been added', 'alert-success')
-        return redirect(url_for('add_recipe', title='Recipe Added'))
+        return redirect(url_for('index', title='Recipe Added'))
   return render_template("add_recipe.html", title='Add a New Recipe', form=form)
 
 #Edit Recipe Route
@@ -125,8 +125,15 @@ def edit_recipe(recipe_id):
 @app.route('/show_recipe/<recipe_id>')
 def show_recipe(recipe_id):
     recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
-
     return render_template('show_recipe.html', recipe=recipe)
+
+#Delete Recipe Route
+@app.route('/delete_recipe/<recipe_id>')
+def delete_recipe(recipe_id):
+    recipe = mongo.db.recipe.remove({"_id": ObjectId(recipe_id)})
+    flash('Your Recipe has been deleted', 'alert-success')
+    return redirect(url_for('index', title='Recipe Deleted'))
+    return render_template('landing.html', recipe=recipe)
 
 
 #Get Shop Route

@@ -2,7 +2,7 @@
 
 {% block content %}
 <center>
-<h1>Add a New Recipe</h1>
+<h1>Add a Recipe</h1>
     {% with messages = get_flashed_messages() %}
     {% if messages %}
         <ul>
@@ -17,40 +17,47 @@
         {{ form.hidden_tag() }}
         <p>
             {{ form.title.label }}<br>
-            {{ form.title(size=50) }}
+            {{ form.title() }}
             {% for error in form.title.errors %}
                 <span style="color: red;">{{ error }}</span>
             {% endfor %}
         </p>
         <p>
-            {{ form.dish_type.label }}<br>
-            {{ form.dish_type(size=1) }}
-            {% for error in form.dish_type.errors %}
+            {{ form.tags.label }}<br>
+            {{ form.tags() }}
+            {% for error in form.tags.errors %}
+                <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.image.label }}<br>
+            {{ form.image() }}
+            {% for error in form.image.errors %}
                 <span style="color: red;">{{ error }}</span>
             {% endfor %}
         </p>
         <p>
             {{ form.discription.label }}<br>
-            {{ form.discription(cols="50", rows="5") }}
+            {{ form.discription(cols="40", rows="10") }}
             {% for error in form.discription.errors %}
                 <span style="color: red;">{{ error }}</span>
             {% endfor %}
         </p>
         <p>
             {{ form.ingredient.label }}<br>
-            {{ form.ingredient(cols="50", rows="10") }}
+            {{ form.ingredient(cols="40", rows="10") }}
             {% for error in form.ingredient.errors %}
                 <span style="color: red;">{{ error }}</span>
             {% endfor %}
         </p>
         <p>
             {{ form.instructions.label }}<br>
-            {{ form.instructions(cols="50", rows="10") }}
+            {{ form.instructions(cols="40", rows="10") }}
             {% for error in form.ingredient.errors %}
                 <span style="color: red;">{{ error }}</span>
             {% endfor %}
         </p>
         <p>{{ form.submit() }}</p>
     </form>
-    </center>
+</center>    
 {% endblock %}
