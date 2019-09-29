@@ -4,7 +4,7 @@ import re
 from flask import Flask, render_template, redirect, request, url_for, flash, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-from forms import LoginForm, AddUser, AddRecipe
+from forms import LoginForm, AddUser, AddRecipe, EditRecipe
 
 app = Flask(__name__)
 
@@ -90,21 +90,23 @@ def get_recipe():
 #Search Recipes
 @app.route('/search_recp', methods=['GET', 'POST'])
 def search_recp():
-
-    query=request.form
-
-    results = mongo.db.cimilestone3.find({
-        '$text':[
+    #Help from Mentor with following code using regular expressions
+    search_query=request.args['query']  
+    
+    query = {'$regex': re.compile('.*{}.*'.format(search_query)), '$options': 'i'}
+    
+    result = mongo.db.recipe.find({
+        '$or':[
             {'title': query},
-            {'ingredients': query},
+            {'ingredient': query},
             {'allergen': query},
             {'dish_type': query},
         ]
     })
-    return render_template('search_recp.html', results=result)
+    return render_template('search_recp.html', title="Search Results", results=result,)
 
 #Add Recipe Route
-@app.route('/add_recipe', methods=['GET', 'POST'])
+@app.route('/add_recipe', methods=['POST', 'GET'])
 def add_recipe():
 
   form = AddRecipe(request.form)
@@ -116,10 +118,14 @@ def add_recipe():
   return render_template("add_recipe.html", title='Add a New Recipe', form=form)
 
 #Edit Recipe Route
-@app.route('/edit_recipe/<recipe_id>')
+@app.route('/edit_recipe/<recipe_id>', methods=['POST', 'GET'])
 def edit_recipe(recipe_id):
     recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
-    return render_template('edit_recipe.html', editrecp=recipe )
+    form = EditRecipe(data=recipe)
+    return render_template('edit_recipe.html', form=form )
+  
+    return render_template("edit_recipe.html", title='Edit a Recipe', form=form)
+
 
 #Show Recipe Route
 @app.route('/show_recipe/<recipe_id>')

@@ -13,7 +13,7 @@
     {% endif %}
     {% endwith %}
 
-    <form action="" method="post">
+    <form action="" method="post" class="form">
         {{ form.hidden_tag() }}
         <p>
             {{ form.title.label }}<br>
@@ -24,14 +24,14 @@
         </p>
         <p>
             {{ form.tags.label }}<br>
-            {{ form.tags() }}
+            {{ form.tags()}}
             {% for error in form.tags.errors %}
                 <span style="color: red;">{{ error }}</span>
             {% endfor %}
         </p>
         <p>
             {{ form.image.label }}<br>
-            {{ form.image() }}
+            {{ form.image()}}
             {% for error in form.image.errors %}
                 <span style="color: red;">{{ error }}</span>
             {% endfor %}
@@ -57,7 +57,7 @@
                 <span style="color: red;">{{ error }}</span>
             {% endfor %}
         </p>
-        <p>{{ form.submit() }}</p>
+        <p>{{ form.submit(class="btn btn-info") }}</p>
     </form>
 </center>    
 {% endblock %}

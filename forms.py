@@ -22,4 +22,13 @@ class AddRecipe(FlaskForm):
     ingredient = TextAreaField('Ingredients Required', validators=[DataRequired()])
     instructions = TextAreaField('Recipe Instructions', validators=[DataRequired()])
     submit = SubmitField('Add Recipe')
+
+class EditRecipe(FlaskForm):
+    title = StringField('Recipe Title', validators=[DataRequired()])
+    tags = StringField('Tags to Discribe the Recipe', validators=[DataRequired()])
+    image = StringField('Link to Recipe Image', validators=[DataRequired()])
+    discription = TextAreaField('Discription of Recipe', validators=[DataRequired()])
+    ingredient = TextAreaField('Ingredients Required', validators=[DataRequired()])
+    instructions = TextAreaField('Recipe Instructions', validators=[DataRequired()])
+    submit = SubmitField('Edit Recipe')
     
