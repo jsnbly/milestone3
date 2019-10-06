@@ -53,11 +53,10 @@
     </div>
     <div class="container">
     <div class="row">
-      <p>If you would like to add a new Recipe Click the button!</p><br>
-      <a href="{{url_for('add_recipe')}}" class="btn btn-success" role="button">Add New Recipe</a><br>
+      <p>If you would like to add a new Recipe 
+      <a href="{{url_for('add_recipe')}}"> Click Here</a></p><br>
     </div>
     </div>    
-    <center>
     <!--Display Flashed Messages-->
     {% with messages = get_flashed_messages() %}
       {% if messages %}
@@ -70,13 +69,17 @@
       {% endwith %}
 
       {% for recipe in recipesuser if session['username'] == recipe.author %}
-          <div class="col-lg-6" id="usrrecipeland">Recipe Title: {{ recipe.title }}<br>By: {{ recipe.author|capitalize }} (Votes: {{ recipe.votes }})<br> 
-          <div class="col-lg-6"><img src="{{recipe.image}}" alt="Image" class="img-fluid"> </div>
+          <center>
+        <div class="container">
+          <div class="col-lg-6" id="usrrecipehead">Recipe Title: {{ recipe.title }}<br>By: {{ recipe.author|capitalize }} (Votes: {{ recipe.votes }})</div>
+          <div class="col-lg-6" id="usrrecipecontent"><img src="{{recipe.image}}" alt="Image" class="img-fluid"> </div>
           <p>{{ recipe.discription }}</p>
           <a href="{{url_for('show_recipe', recipe_id=recipe._id)}}" class="btn btn-success" role="button">See Recipe</a>
           <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn btn-warning" role="button">Edit Recipe</a>
           <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="btn btn-danger" role="button">Delete Recipe</a>
-        </div><br>
+          </div><br>
+        </div>
+          </center>
       {% else %}
 <!--User has no Recipes in the data base-->
         <p>You Currently have no recipes added, Would you like to add one now?</p>
@@ -85,5 +88,5 @@
     </div>
 {% endif %}
 
-</center>
+
 {% endblock %}

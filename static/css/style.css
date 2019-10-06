@@ -11,14 +11,16 @@
   border-radius: 25px;
 }
 /*User Landing Page*/
-#usrrecipeland{
+#usrrecipehead{
   padding-bottom: 5px;
   padding-top: 5px;
-  border: 1px solid black;
-  border-radius: 30px;
   background-color: #e6f9ff;
 }
-
+#usrrecipecontent{
+  padding-bottom: 5px;
+  padding-top: 5px;
+  background-color: #ffffff;
+}
 .recipesection{
   padding-top: 5px;
   padding-bottom: 10px;
