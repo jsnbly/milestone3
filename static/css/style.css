@@ -6,9 +6,17 @@
   }
 
 #jumbotron-text{
-  background: white;
+  background: #ffffff;
   padding-bottom: 5px;
   border-radius: 25px;
+}
+/*User Landing Page*/
+#usrrecipeland{
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border: 1px solid black;
+  border-radius: 30px;
+  background-color: #e6f9ff;
 }
 
 .recipesection{

@@ -24,7 +24,7 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template("landing.html", title='Lets get Cookin', recipes=mongo.db.recipe.find() )
+    return render_template("landing.html", title='Lets get Cookin', recipes=mongo.db.recipe.find().limit(5), recipesuser=mongo.db.recipe.find() )
 
 #User Routes
 
@@ -99,7 +99,7 @@ def search_recp():
         '$or':[
             {'title': query},
             {'ingredient': query},
-            {'allergen': query},
+            {'tag': query},
             {'dish_type': query},
         ]
     })
@@ -127,7 +127,6 @@ def edit_recipe(recipe_id):
         return redirect(url_for('index', title='Recipe Updated'))
     recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})
     form = EditRecipe(data=recipe)
-  #  return render_template('edit_recipe.html', form=form )
     return render_template("edit_recipe.html", title='Edit a Recipe', form=form)
 
 
