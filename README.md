@@ -67,7 +67,7 @@ This section is also where you would share links to any wireframes, mockups, dia
 
 ## Features
 
-Home Page/Index: Main Home Page Displays Top Five Recipies by Votes  
+Home Page/Index: Main Home Page Displays Top Five Recipies by Votes Jumbotron with CTA for Registration   
 User Registration Page:  Allows the user to create a user account  
 User Login Page:  Allows the user to Login to their existing account  
 User Profile Page: Shows list of User created Recipies  
@@ -81,8 +81,8 @@ Shop Page: Shows the user a range of the site owners products currently for sale
  
 ### Existing Features
 - Home Page/Index - Provides a Landing page for the user Showing Recipes and SIgnup Options  
-- When the Site opens the customer is greeted with Nav Bar, Jumbotron, A list of the top 5 Recipes and footer 
-- and is fully responsive regardless of the screen size it is opened in. 
+- When the Site opens the customer is greeted with Nav Bar, Jumbotron, A list of the top 5 Recipes and Site Footer 
+- It is fully responsive regardless of the screen size it is opened in. 
 
 - User Registration Page  
 - When the customer clicks the register button they are prompted to enter their details to register an account  
@@ -101,7 +101,14 @@ Shop Page: Shows the user a range of the site owners products currently for sale
 
 - Search Box  
 - The user can search for any word, phrase or tag that might link to a recipe and will display the result when the  
-- search button is pushed or no results found if there is nothing in the database.
+- search button is pushed or no results found if there is nothing in the database.  
+
+- Recipe Page  
+- Lists all Recipes on the site, User can Click into individual recipes to see full instructions of how to prepare.  
+
+- Shop Page  
+- Generic Landing page for a pretend shop that the Site owner can fill with their own information regarding  
+- Products for Sale. 
 
 
 For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
@@ -109,10 +116,11 @@ For some/all of your features, you may choose to reference the specific project 
 In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
 
 ### Features Left to Implement
-- A way to Admin Recipes added to the site  
-- A Comment section to the recipes  
-- A better way of voting on recipes
-- Email Confirmation at tiem of login  
+- A way to Admin Recipes added to the site to check for profanity etc.   
+- A Comment section for the recipes  
+- A better way of voting on recipes at present there is no logic to see if the user has already voted  
+- Email Confirmation at time of login  
+
 
 ## Technologies Used
 HTML  
@@ -201,12 +209,14 @@ as I could not find a cleaner way to achive this his code is clearly commented i
 The login code was built with the help of Pretty Printed video on Youtube this can be found here  
 https://www.youtube.com/watch?v=vVx1737auSE  
 
+Navbar and Footer Code was taken from Bootstrap 4 example Code in Bootstrap4 Documentation
+
 ### Content  
 Recipes for testing were taken from https://www.bbc.co.uk/food/recipes  
 
 ### Media
 Favicon from https://www.freefavicon.com  
-Other Images from Google Images and https://pixabay.com  Used for educational purpose only.  
+Other Images from Google Images and https://pixabay.com  Copyright of their owners and used here for educational purpose only.  
 
 ### Acknowledgements
 

@@ -77,3 +77,24 @@
   padding-left: 20px;
   padding-right: 20px;
 }
+
+/*Shop CSS*/
+.shophead{
+  background-color: #73949e;
+  color: white;
+}
+
+.shopcont{
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin: auto;
+
+}
+
+.fillshop{
+  background-color: #c0dbe4;
+}
+
+.shopimg{
+  border-radius: 30px;
+}
