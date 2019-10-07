@@ -5,10 +5,15 @@
         <div class="container recipesection">
             <div class="row">
                 <div class="col-lg-6"><img src="{{recipe.image}}" alt="Image" class="img-fluid"> </div>
-                <div class="col-lg-6"><h1>{{ recipe.title }}</h1> <br>By({{ recipe.author }}) (Votes:{{ recipe.votes }})<br> 
-                    <p>{{ recipe.discription }}</p><br>Ingredients:{{ recipe.ingredients }}, Allergens:{{ recipe.allergen }}<br>
-                    Instruction:{{ recipe.instructions }}
-                
+                <div class="col-lg-6">
+                    <div><h1>{{ recipe.title[:30] }}</h1></div>
+                    <div><b>Author: </b> {{ recipe.author|capitalize }}</div>
+                    <div><b>Votes: </b>{{ recipe.votes }}</div>
+                    <div><b>Description:</b> {{ recipe.discription[:30] }}...</div>
+                    <div><b>Ingredients:</b> {{ recipe.ingredients }}</div>
+                    <div><b>Allergens:</b> {{ recipe.allergen }}</div>
+                    <div><b>Instruction:</b> {{ recipe.instructions[:30] }}...</div>
+                    <div class="text-center recpshowbutton"><a href="{{url_for('show_recipe', recipe_id=recipe._id)}}" class="btn btn-success" role="button">See Recipe</a></div>
                 </div>
                 </div>
             </div>

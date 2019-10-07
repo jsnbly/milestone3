@@ -4,24 +4,18 @@
 
 <div class="container recipesection">
         <div class="row">
-            <div class="col-lg-6"><img src="{{recipe.image}}" alt="Image" class="img-fluid"> </div>
-            <div class="col-lg-6"><h1>{{ recipe.title }}</h1> <br>By({{ recipe.author }}) (Votes:{{ recipe.votes }})<br> 
-                <p>{{ recipe.discription }}</p><br>Ingredients:{{ recipe.ingredients }}, Allergens:{{ recipe.allergen }}<br>
-                Instruction:{{ recipe.instructions }}
+            <div class="col-lg-6"><img src="{{recipe.image}}" alt="Recipe Image" class="img-fluid"> </div>
+            <div class="col-lg-6 ">
+                <div><h1>{{ recipe.title }}</h1></div> 
+                <div><b>Author:</b> ({{ recipe.author|capitalize }})</div> 
+                <div><b>Votes:</b> {{ recipe.votes }}</div> 
+                <div><b>Prep Time:</b> {{ recipe.preptime }}</div>
+                <div class="whitespacing"><b>Description:</b> {{ recipe.discription }}</div>
+                <div><b>Ingredients:</b> {{ recipe.ingredients }}</div> 
+                <div><b>Allergens:</b> {{ recipe.allergen }}</div>
+                <div class="whitespacing"><b>Instructions:</b> {{ recipe.instructions }}</div>
             
             </div>
             </div>
         </div>
-<!-- to be removed leaving in to test schema-->
-
-{{ recipe.title }}
-{{ recipe.author }}
-{{ recipe.votes }}
-{{ recipe.dish_type }}
-{{ recipe.views }}
-{{ recipe.ingredients }}
-{{ recipe.allergen }}
-{{ recipe.instructions }}
-
-
 {% endblock %}
