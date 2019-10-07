@@ -24,7 +24,7 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template("landing.html", title='Lets get Cookin', recipes=mongo.db.recipe.find().limit(5), recipesuser=mongo.db.recipe.find() )
+    return render_template("landing.html", title='Lets get Cookin', recipes=mongo.db.recipe.find().limit(5).sort("votes",-1), recipesuser=mongo.db.recipe.find() )
 
 #User Routes
 
