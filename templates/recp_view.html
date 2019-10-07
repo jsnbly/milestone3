@@ -18,5 +18,19 @@
                 </div>
             </div>
     {% endfor %}
+
+    <div class="pgnation">
+        <ul class="pagination justify-content-center">
+            {% for numpages in totalpages %}
+            {% if numpages == page %}
+                <li class="page-item active">
+                <a class="page-link">{{ numpages }}</a>
+                </li>
+            {% else %}
+            <li class="page-item"><a class="page-link" href="{{ url_for('get_recipe', page=numpages) }}">{{ numpages }}</a></li>
+            {% endif %}
+            {% endfor %}
+        </ul>    
+    </div>
     
   {% endblock %}

@@ -1,8 +1,9 @@
 import os
 import bcrypt
 import re
+import math
 from flask import Flask, render_template, redirect, request, url_for, flash, session
-from flask_pymongo import PyMongo
+from flask_pymongo import PyMongo, pymongo, DESCENDING
 from bson.objectid import ObjectId
 from forms import LoginForm, AddUser, AddRecipe, EditRecipe
 
@@ -57,10 +58,11 @@ def login():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = AddUser(request.form)
+    #check if user exists in the database
     if form.validate_on_submit():
         user = mongo.db.user
         dose_user_exist = user.find_one({'username':request.form['username']})
-       
+    #if user dose not exist create user
         if dose_user_exist is None:
             cryptpass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
             user.insert_one({'username':request.form['username'],
@@ -81,11 +83,23 @@ def logout():
 
 #Recipe Routes
 
-#Get Recipe Route ADMIN
+#Get Recipe Route 
 @app.route('/get_recipe')
 def get_recipe():
-
-    return render_template("recp_view.html", recipes=mongo.db.recipe.find())
+   
+    #pagination
+    #set page limit
+    page_limit = 4
+    #create dic with request.args
+    page = int(request.args.get('page',1))
+    #count total recipes in db
+    #https://api.mongodb.com/python/current/tutorial.html
+    numrecipes = mongo.db.recipe.count_documents({})
+    #sorts database returns by top voted   
+    reciperet = mongo.db.recipe.find().sort('votes', pymongo.DESCENDING).skip((page -1)*page_limit).limit(page_limit)
+    #below used to return smallest int through math.ceil rounding to give range for pagination
+    totalpages = range(1, int(math.ceil(numrecipes / page_limit))+ 1)
+    return render_template("recp_view.html", recipes=reciperet, totalpages=totalpages, page=page, title="Recipes")
 
 #Search Recipes
 @app.route('/search_recp', methods=['GET', 'POST'])

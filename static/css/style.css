@@ -107,3 +107,8 @@
 .shopimg{
   border-radius: 30px;
 }
+
+/*Pagination CSS*/
+.pgnation{
+  padding-top: 10px;
+}

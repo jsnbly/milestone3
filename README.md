@@ -18,7 +18,7 @@ Use of Technologies: Use HTML and customer CSS for the Websites front-end.
 Structure: Incorporate a main navigation menu and structured layout  
 Documentation: Write a README.md files for your project that explains what the project dose and the value that it provides to its users.  
 Version control: Use Git & GitHug for version control.  
-Attribution: Maintain clear separation netween code written by you and code from external sources. Attribute any code from external sources via comments above the code and for larger dependencies in the README.  
+Attribution: Maintain clear separation between code written by you and code from external sources. Attribute any code from external sources via comments above the code and for larger dependencies in the README.  
 Deployment:Deploy the final version of your code to a hosting plaform such as Heroku.  
 
 # Project Idea  
