@@ -11,6 +11,11 @@
   border-radius: 25px;
 }
 /*User Landing Page*/
+.recpheader{
+  background-color: #73949e;
+  color: white;
+}
+
 #usrrecipehead{
   padding-bottom: 5px;
   padding-top: 5px;
@@ -24,13 +29,17 @@
 
 /*Add/Edit Recipe Page*/
 #addrecphead{
-  background-color: #e6f9ff;
-
+  background-color: #73949e;
+  color: white;
+}
+#addrecpcontent{
+  background-color: #c0dbe4
 }
 
 .recipesection{
   padding-top: 5px;
   padding-bottom: 10px;
+  background-color: #c0dbe4;
 }
 
 .userrecipesection{
@@ -42,8 +51,8 @@
 #formimages{
   height: 100%;
   width: 100%;
-  filter: blur(1px);
   border-radius: 30px;
+  position: relative;
 }
 
 .formbg{
@@ -52,4 +61,14 @@
 }
 .formpad{
   padding-bottom: 10px;
+}
+
+.text-block {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
 }

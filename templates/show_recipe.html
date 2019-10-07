@@ -2,6 +2,16 @@
 
 {% block content %}
 
+<div class="container recipesection">
+        <div class="row">
+            <div class="col-lg-6"><img src="{{recipe.image}}" alt="Image" class="img-fluid"> </div>
+            <div class="col-lg-6"><h1>{{ recipe.title }}</h1> <br>By({{ recipe.author }}) (Votes:{{ recipe.votes }})<br> 
+                <p>{{ recipe.discription }}</p><br>Ingredients:{{ recipe.ingredients }}, Allergens:{{ recipe.allergen }}<br>
+                Instruction:{{ recipe.instructions }}
+            
+            </div>
+            </div>
+        </div>
 <!-- to be removed leaving in to test schema-->
 
 {{ recipe.title }}
