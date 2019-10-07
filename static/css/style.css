@@ -37,3 +37,19 @@
   padding-top: 5px;
   padding-bottom: 15px;
 }
+
+/*CSS for Registration and Login Form pages*/
+#formimages{
+  height: 100%;
+  width: 100%;
+  filter: blur(1px);
+  border-radius: 30px;
+}
+
+.formbg{
+  background-color: #c0dbe4;
+  border-radius: 30px;
+}
+.formpad{
+  padding-bottom: 10px;
+}
