@@ -27,6 +27,11 @@
   background-color: #ccf3ff;
 }
 
+#profileimages{
+  height: 150px;
+  width: 250px;
+}
+
 /*Add/Edit Recipe Page*/
 #addrecphead{
   background-color: #73949e;

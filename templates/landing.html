@@ -37,13 +37,13 @@
 </div></div>
 {% for recipe in recipes %}
   
-  <div class="container recipesection">
+  <div class="container recipesection text-center">
     <div class="row">
         
         <div class="col-lg-6"><img src="{{recipe.image}}" alt="Image" class="img-fluid"> </div>
         <div class="col-lg-6">
-          <div class="col-lg-12" id="usrrecipehead"><h1>{{ recipe.title|capitalize }}</h1></div>
-          <div class="col-lg-12" id="usrrecipehead">Submitted by: ({{ recipe.author|capitalize }}) (<a href="{{url_for('vote', recipe_id=recipe._id)}}">Votes:</a> {{ recipe.votes }})<br> 
+          <div class="col-lg-12" id="usrrecipehead"><h1>{{ recipe.title[:16]|capitalize }}</h1></div>
+          <div class="col-lg-12" id="usrrecipehead">Submitted by: ({{ recipe.author|capitalize }})<br> (<a href="{{url_for('vote', recipe_id=recipe._id)}}">Votes:</a> {{ recipe.votes }})<br> 
             <p>Recipe Tags: {{ recipe.tags }}</p><br>
             <a href="{{url_for('show_recipe', recipe_id=recipe._id)}}" class="btn btn-success" role="button">See Recipe</a>
         
@@ -77,24 +77,28 @@
        </ul>
       {% endif %}
       {% endwith %}
-      <div class="container ">
-      <div class="row">
+      
+        <div class="row">
       {% for recipe in recipesuser if session['username'] == recipe.author %}
             
-            <div class="col-lg-3" id="usrrecipehead">Recipe Title: {{ recipe.title }}<br>By: {{ recipe.author|capitalize }} (Votes: {{ recipe.votes }})</div>
-            <div class="col-lg-3" id="usrrecipecontent"><img src="{{recipe.image}}" alt="Image" class="img-fluid"> 
-            <p>Discription: {{ recipe.discription }}</p>
+            <div class="col-lg-6 text-center">
+            <div class="col-lg-12" id="usrrecipehead">Recipe Title: {{ recipe.title }}<br>By: {{ recipe.author|capitalize }} (Votes: {{ recipe.votes }})</div>
+            <div class="col-lg-12" id="usrrecipecontent"><img src="{{recipe.image}}" alt="Image" class="img-fluid" id="profileimages"></div> 
+            <div class="col-lg-12">
+            <p>Discription: {{ recipe.discription[:30] }}...</p>
             <a href="{{url_for('show_recipe', recipe_id=recipe._id)}}" class="btn btn-success" role="button">See Recipe</a>
             <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn btn-warning" role="button">Edit Recipe</a>
             <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="btn btn-danger" role="button">Delete Recipe</a>
-            </div>
+            </div></div>
    
       {% else %}
 <!--User has no Recipes in the data base-->
         <p>You Currently have no recipes added, Would you like to add one now?</p>
         <a href="{{url_for('add_recipe')}}" class="btn btn-success" role="button">Add New Recipe</a>
       {% endfor %}
-    </div>
+      </div>
+    
+    
 
 {% endif %}
 
