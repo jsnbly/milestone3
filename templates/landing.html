@@ -39,7 +39,7 @@
         <div class="col-lg-6"><img src="{{recipe.image}}" alt="Image" class="img-fluid"> </div>
         <div class="col-lg-6">
           <div class="col-lg-12" id="usrrecipehead"><h1>{{ recipe.title|capitalize }}</h1></div>
-          <div class="col-lg-12">Submitted by: ({{ recipe.author|capitalize }}) (Votes: {{ recipe.votes }})<br> 
+          <div class="col-lg-12">Submitted by: ({{ recipe.author|capitalize }}) (<a href="{{url_for('vote', recipe_id=recipe._id)}}">Votes:</a> {{ recipe.votes }})<br> 
             <p>Recipe Tags: {{ recipe.tags }}</p><br>
             <a href="{{url_for('show_recipe', recipe_id=recipe._id)}}" class="btn btn-success" role="button">See Recipe</a>
         

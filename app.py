@@ -77,7 +77,7 @@ def register():
 @app.route('/logout')
 def logout():
     session.clear()
-    return redirect(url_for('index'))
+    return redirect(url_for('index', title="Logged Out"))
 
 #Recipe Routes
 
@@ -144,11 +144,19 @@ def delete_recipe(recipe_id):
     return redirect(url_for('index', title='Recipe Deleted'))
     return render_template('landing.html', recipe=recipe)
 
+#Add Vote to Recipe
+@app.route('/vote/<recipe_id>')
+def vote(recipe_id):
+    recipe = mongo.db.recipe
+    recipe.find_one_and_update({'_id' : ObjectId(recipe_id)},
+    {'$inc': {'votes': 1}})
+    return redirect(url_for('index', title=""))
+
 
 #Get Shop Route
 @app.route('/get_shop')
 def get_shop():
-    return render_template("shop.html", title='Shop')
+    return render_template("shop.html", title='CookIT Shop')
 
 #remove debug flag for deployment
 if __name__ == '__main__':
