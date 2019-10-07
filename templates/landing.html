@@ -35,10 +35,16 @@
   
   <div class="container recipesection">
     <div class="row">
+        
         <div class="col-lg-6"><img src="{{recipe.image}}" alt="Image" class="img-fluid"> </div>
-        <div class="col-lg-6"><h1>{{ recipe.title }}</h1><br>By({{ recipe.author }}) (Votes:{{ recipe.votes }})<br> 
-            <p>{{ recipe.discription }}</p><br>
+        <div class="col-lg-6">
+          <div class="col-lg-12" id="usrrecipehead"><h1>{{ recipe.title|capitalize }}</h1></div>
+          <div class="col-lg-12">Submitted by: ({{ recipe.author|capitalize }}) (Votes: {{ recipe.votes }})<br> 
+            <p>Recipe Tags: {{ recipe.tags }}</p><br>
             <a href="{{url_for('show_recipe', recipe_id=recipe._id)}}" class="btn btn-success" role="button">See Recipe</a>
+        
+        </div>
+        </div>
         </div>
         </div>
     </div>
@@ -69,17 +75,18 @@
       {% endwith %}
 
       {% for recipe in recipesuser if session['username'] == recipe.author %}
-          <center>
+          
         <div class="container">
-          <div class="col-lg-6" id="usrrecipehead">Recipe Title: {{ recipe.title }}<br>By: {{ recipe.author|capitalize }} (Votes: {{ recipe.votes }})</div>
-          <div class="col-lg-6" id="usrrecipecontent"><img src="{{recipe.image}}" alt="Image" class="img-fluid"> </div>
-          <p>{{ recipe.discription }}</p>
-          <a href="{{url_for('show_recipe', recipe_id=recipe._id)}}" class="btn btn-success" role="button">See Recipe</a>
-          <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn btn-warning" role="button">Edit Recipe</a>
+          <div class="row">
+          <div class="col-lg-12">
+           <div class="col-lg-6" id="usrrecipehead">Recipe Title: {{ recipe.title }}<br>By: {{ recipe.author|capitalize }} (Votes: {{ recipe.votes }})</div>
+            <div class="col-lg-6" id="usrrecipecontent"><img src="{{recipe.image}}" alt="Image" class="img-fluid"> 
+            <p>Discription: {{ recipe.discription }}</p>
+            <a href="{{url_for('show_recipe', recipe_id=recipe._id)}}" class="btn btn-success" role="button">See Recipe</a>
+            <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn btn-warning" role="button">Edit Recipe</a>
           <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="btn btn-danger" role="button">Delete Recipe</a>
-          </div><br>
-        </div>
-          </center>
+        </div></div></div></div>
+   
       {% else %}
 <!--User has no Recipes in the data base-->
         <p>You Currently have no recipes added, Would you like to add one now?</p>

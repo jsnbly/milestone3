@@ -67,28 +67,52 @@ This section is also where you would share links to any wireframes, mockups, dia
 
 ## Features
 
-Index: Main Home Page Displays Top Five Recipies by Votes  
+Home Page/Index: Main Home Page Displays Top Five Recipies by Votes  
 User Registration Page:  Allows the user to create a user account  
 User Login Page:  Allows the user to Login to their existing account  
 User Profile Page: Shows list of User created Recipies  
-Search Box in Nav Bar: Allows the user to search for recipies  
+Search Box in Nav Bar: Allows the user to search for recipes  
 Nav Bar: Quick access to Login, Logout, Search, Shop  
-Vote Button: Allows user to Vote from recipe  
+Vote Link: Allows user to Vote from recipe  
 Add Recipe Page: Allows user to add a new recipe  
 Edit Recipe Page: Allows user to edit an existing recipe  
 Delete Recipe Button: Allows the user to delete a recipe from the database  
 Shop Page: Shows the user a range of the site owners products currently for sale  
  
 ### Existing Features
-- Feature 1 - allows users X to achieve Y, by having them fill out Z
-- ...
+- Home Page/Index - Provides a Landing page for the user Showing Recipes and SIgnup Options  
+- When the Site opens the customer is greeted with Nav Bar, Jumbotron, A list of the top 5 Recipes and footer 
+- and is fully responsive regardless of the screen size it is opened in. 
+
+- User Registration Page  
+- When the customer clicks the register button they are prompted to enter their details to register an account  
+- It asked for username, email, and password and then creates a user account in the database.  
+
+- User Login Page  
+- This page prompts the user to enter their user name and password to access their user profile page  
+
+- User Profile Page  
+- Once the user is logged in they will see a new jumbotron for the shop and they will see a list of their  
+- Recipes in the data base here they can view, edit and delete their recipes from the database
+
+- Nav Bar  
+- Responsive Nav Bar that collapses when the site is viewed on small screen devices it is home to the search box  
+- and navigation links to let the user view recipes, login/logout and access the shop.  
+
+- Search Box  
+- The user can search for any word, phrase or tag that might link to a recipe and will display the result when the  
+- search button is pushed or no results found if there is nothing in the database.
+
 
 For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
 
 In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
 
 ### Features Left to Implement
-- 
+- A way to Admin Recipes added to the site  
+- A Comment section to the recipes  
+- A better way of voting on recipes
+- Email Confirmation at tiem of login  
 
 ## Technologies Used
 HTML  
@@ -123,7 +147,7 @@ If this section grows too long, you may want to split it off into a separate fil
 
 ## Deployment  
 
-Deployed Version
+### Deployed Version
 The Depolyed version of this project was achived using heroku and mongodb.com the main difference with  
 the deployed version is it used Heroku Config Vars for the secret key and Mongo_URI form a security point  
 I chose to use this method rather than use something like an config.py file as I felt it was more secure  
@@ -152,7 +176,7 @@ asumes you have a heroku account to push to.
    if not check the heroku logs to see what went wrong     
 9. Open heroku.com and in your profile page clicj the projects title then click open app to view running application 
 
-Development Version  
+### Development Version  
 Development for this project was tested using Python 3.7.4 on Windows 10 running through Command Line  
 and linking back to MongoDB Collection hosted on mongodb.com, the Following steps will help anyone   
 to achive a running version on their machine. You will need to edit the Secret_Key and MONGODB_URI to your  
@@ -178,7 +202,7 @@ The login code was built with the help of Pretty Printed video on Youtube this c
 https://www.youtube.com/watch?v=vVx1737auSE  
 
 ### Content  
-Recipies for testing were taken from https://www.bbc.co.uk/food/recipes  
+Recipes for testing were taken from https://www.bbc.co.uk/food/recipes  
 
 ### Media
 Favicon from https://www.freefavicon.com  

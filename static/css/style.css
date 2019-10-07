@@ -19,8 +19,15 @@
 #usrrecipecontent{
   padding-bottom: 5px;
   padding-top: 5px;
-  background-color: #ffffff;
+  background-color: #ccf3ff;
 }
+
+/*Add Recipe Page*/
+#addrecphead{
+  background-color: #e6f9ff;
+
+}
+
 .recipesection{
   padding-top: 5px;
   padding-bottom: 10px;
