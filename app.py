@@ -89,7 +89,7 @@ def get_recipe():
    
     #pagination
     #set page limit
-    page_limit = 4
+    page_limit = 5
     #create dic with request.args
     page = int(request.args.get('page',1))
     #count total recipes in db
@@ -97,18 +97,23 @@ def get_recipe():
     numrecipes = mongo.db.recipe.count_documents({})
     #sorts database returns by top voted   
     reciperet = mongo.db.recipe.find().sort('votes', pymongo.DESCENDING).skip((page -1)*page_limit).limit(page_limit)
-    #below used to return smallest int through math.ceil rounding to give range for pagination
+    #used to return the sequence of pages in the range
     totalpages = range(1, int(math.ceil(numrecipes / page_limit))+ 1)
     return render_template("recp_view.html", recipes=reciperet, totalpages=totalpages, page=page, title="Recipes")
 
 #Search Recipes
 @app.route('/search_recp', methods=['GET', 'POST'])
 def search_recp():
+    
+    page_limit = 5
+    page = int(request.args.get('page',1))
+    numrecipes = mongo.db.recipe.count_documents({})
+   
     #Help from Mentor with following code using regular expressions
     search_query=request.args['query']  
     
     query = {'$regex': re.compile('.*{}.*'.format(search_query)), '$options': 'i'}
-    
+    #will return query a result based on top votes
     result = mongo.db.recipe.find({
         '$or':[
             {'title': query},
@@ -116,8 +121,11 @@ def search_recp():
             {'tag': query},
             {'dish_type': query},
         ]
-    })
-    return render_template('search_recp.html', title="Search Results", results=result,)
+    }).sort('votes', pymongo.DESCENDING).skip((page -1)*page_limit).limit(page_limit)
+    
+    totalpages = range(1, int(math.ceil(numrecipes / page_limit))+ 1)
+
+    return render_template('search_recp.html', title="Search Results", results=result, totalpages=totalpages, page=page)
 
 #Add Recipe Route
 @app.route('/add_recipe', methods=['POST', 'GET'])
