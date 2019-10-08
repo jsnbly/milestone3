@@ -18,7 +18,7 @@
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-6 recpformpad">
         <p>
             <b>{{ form.title.label }}</b><br>
             {{ form.title() }}
@@ -48,10 +48,10 @@
             {% endfor %}
         </p>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 recpformpad">
         <p>
             <b>{{ form.discription.label }}</b><br>
-            {{ form.discription(cols="40", rows="10") }}
+            {{ form.discription(cols="30", rows="10") }}
             {% for error in form.discription.errors %}
                 <span style="color: red;">{{ error }}</span>
             {% endfor %}
@@ -59,27 +59,27 @@
         </div>
         </div>
         <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-6 recpformpad">
         <p>
             <b>{{ form.ingredient.label }}</b><br>
-            {{ form.ingredient(cols="40", rows="10") }}
+            {{ form.ingredient(cols="30", rows="10") }}
             {% for error in form.ingredient.errors %}
                 <span style="color: red;">{{ error }}</span>
             {% endfor %}
         </p>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 recpformpad">
         <p>
             <b>{{ form.instructions.label }}</b><br>
-            {{ form.instructions(cols="40", rows="10") }}
-            {% for error in form.ingredient.errors %}
+            {{ form.instructions(cols="30", rows="10") }}
+            {% for error in form.instructions.errors %}
                 <span style="color: red;">{{ error }}</span>
             {% endfor %}
         </p>
         </div>
         </div>
         <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12 recpformpad">
         <p>{{ form.submit(class="btn btn-info") }}
         <a href="{{url_for('index')}}" class="btn btn-danger" role="button">Cancel</a></p>
         </div>
