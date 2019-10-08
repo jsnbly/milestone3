@@ -134,7 +134,7 @@ def add_recipe():
   form = AddRecipe(request.form)
   if form.validate_on_submit():
         recipedb = mongo.db.recipe
-        recipedb.insert_one({'title':request.form['title'],'author':session['username'], 'tags': request.form['tags'], 'image': request.form['image'], 'discription': request.form['discription'],'ingredient':request.form['ingredient'],'instructions':request.form['instructions'],'votes':0,'visits':0})
+        recipedb.insert_one({'title':request.form['title'],'author':session['username'], 'tags': request.form['tags'],'preptime': request.form['preptime'], 'image': request.form['image'], 'discription': request.form['discription'],'ingredient':request.form['ingredient'],'instructions':request.form['instructions'],'votes':0,'visits':0})
         flash('Your Recipe has been added', 'alert-success')
         return redirect(url_for('index', title='Recipe Added'))
   return render_template("add_recipe.html", title='Add a New Recipe', form=form)
@@ -144,7 +144,7 @@ def add_recipe():
 def edit_recipe(recipe_id):
     if request.method == 'POST':
         recipedb = mongo.db.recipe
-        recipedb.update({"_id": ObjectId(recipe_id)},{'title':request.form['title'],'author':session['username'], 'tags': request.form['tags'], 'image': request.form['image'], 'discription': request.form['discription'],'ingredient':request.form['ingredient'],'instructions':request.form['instructions'],'votes':0,'visits':0})
+        recipedb.update({"_id": ObjectId(recipe_id)},{'title':request.form['title'],'author':session['username'], 'tags': request.form['tags'],'preptime': request.form['preptime'], 'image': request.form['image'], 'discription': request.form['discription'],'ingredient':request.form['ingredient'],'instructions':request.form['instructions'],'votes':0,'visits':0})
         flash('Your Recipe has been updated', 'alert-success')
         return redirect(url_for('index', title='Recipe Updated'))
     recipe = mongo.db.recipe.find_one({"_id": ObjectId(recipe_id)})

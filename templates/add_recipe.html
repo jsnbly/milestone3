@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <div id="addrecphead">
+    <div class="text-center" id="addrecphead">
     <h1>Add a Recipe</h1>
     </div>
     {% with messages = get_flashed_messages() %}
@@ -14,28 +14,34 @@
         </ul>
     {% endif %}
     {% endwith %}
-    <div class="container">
-    <div class="row text-center" id="addrecpcontent">
+    <div class="container text-center" id="addrecpcontent">
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <div class="row">
         <div class="col-lg-6">
         <p>
-            {{ form.title.label }}<br>
+            <b>{{ form.title.label }}</b><br>
             {{ form.title() }}
             {% for error in form.title.errors %}
                 <span style="color: red;">{{ error }}</span>
             {% endfor %}
         </p>
         <p>
-            {{ form.tags.label }}<br>
+            <b>{{ form.tags.label }}</b><br>
             {{ form.tags() }}
             {% for error in form.tags.errors %}
                 <span style="color: red;">{{ error }}</span>
             {% endfor %}
         </p>
         <p>
-            {{ form.image.label }}<br>
+            <b>{{ form.preptime.label }}</b><br>
+            {{ form.preptime() }}
+            {% for error in form.image.errors %}
+                <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </p>
+        <p>
+            <b>{{ form.image.label }}</b><br>
             {{ form.image() }}
             {% for error in form.image.errors %}
                 <span style="color: red;">{{ error }}</span>
@@ -44,7 +50,7 @@
         </div>
         <div class="col-lg-6">
         <p>
-            {{ form.discription.label }}<br>
+            <b>{{ form.discription.label }}</b><br>
             {{ form.discription(cols="40", rows="10") }}
             {% for error in form.discription.errors %}
                 <span style="color: red;">{{ error }}</span>
@@ -55,7 +61,7 @@
         <div class="row">
         <div class="col-lg-6">
         <p>
-            {{ form.ingredient.label }}<br>
+            <b>{{ form.ingredient.label }}</b><br>
             {{ form.ingredient(cols="40", rows="10") }}
             {% for error in form.ingredient.errors %}
                 <span style="color: red;">{{ error }}</span>
@@ -64,7 +70,7 @@
         </div>
         <div class="col-lg-6">
         <p>
-            {{ form.instructions.label }}<br>
+            <b>{{ form.instructions.label }}</b><br>
             {{ form.instructions(cols="40", rows="10") }}
             {% for error in form.ingredient.errors %}
                 <span style="color: red;">{{ error }}</span>
@@ -79,7 +85,6 @@
         </div>
         </div>
     </form>
-    </div>
     </div>
    
   

@@ -16,7 +16,8 @@ class AddUser(FlaskForm):
 
 class AddRecipe(FlaskForm):
     title = StringField('Recipe Title', validators=[DataRequired()])
-    tags = StringField('Tags to Discribe the Recipe', validators=[DataRequired()])
+    tags = StringField('Tags to Describe the Recipe', validators=[DataRequired()])
+    preptime = StringField('Prep Time', validators=[DataRequired()])
     image = StringField('Link to Recipe Image', validators=[DataRequired()])
     discription = TextAreaField('Description of Recipe', validators=[DataRequired()])
     ingredient = TextAreaField('Ingredients Required', validators=[DataRequired()])
@@ -25,7 +26,8 @@ class AddRecipe(FlaskForm):
 
 class EditRecipe(FlaskForm):
     title = StringField('Recipe Title', validators=[DataRequired()])
-    tags = StringField('Tags to Discribe the Recipe', validators=[DataRequired()])
+    tags = StringField('Tags to Describe the Recipe', validators=[DataRequired()])
+    preptime = StringField('Prep Time', validators=[DataRequired()])
     image = StringField('Link to Recipe Image', validators=[DataRequired()])
     discription = TextAreaField('Description of Recipe', validators=[DataRequired()])
     ingredient = TextAreaField('Ingredients Required', validators=[DataRequired()])
