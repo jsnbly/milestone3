@@ -1,0 +1,6 @@
+{
+  _id:<ObjectId1>
+  username:string"username"
+  password:Binary"hashedpassword"
+  email:string"useremail"
+}

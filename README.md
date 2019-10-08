@@ -1,16 +1,14 @@
 # Milestone 3 Data Centric Development  
 
 Access Project on Heroku here - https://online-cookbookms3.herokuapp.com/  
-Wireframes Can be seen here - 
-Database Schema Can be seen here - 
 
 An Online Cookbook - The brief for this project was to design and build an online Recipe Book to give the site owner a way to promote their brand of cooking tools by give external users a way to share recipes with other users on the site.
 
-# Project Requirements  
+# Technologies to use for Project Requirements  
 Main Technologies  
 HTML,CSS,JavaScript,Python & Flask,MongoDB and can include Additional Libraries and external APIS.  
 
-# Project Mandatory Requirments  
+# Outline of Project Mandatory Requirments  
 Data Handling: Build a MongoDB-backed Flask project for a web application that allows user to store and manipulate data records about a particular domain.  
 Database Structure:Put some effore into designing a database structure well suited for your domain. Mkae sure to put some thought into the nesting relationships between records of different entities.  
 User Functionality: Create functionality for users to create, locate, display, edit and delete records (CRUD functionality)  
@@ -21,7 +19,7 @@ Version control: Use Git & GitHug for version control.
 Attribution: Maintain clear separation between code written by you and code from external sources. Attribute any code from external sources via comments above the code and for larger dependencies in the README.  
 Deployment:Deploy the final version of your code to a hosting plaform such as Heroku.  
 
-# Project Idea  
+# Project Idea 
 External User Goals  
 -Find and Share Recipes  
 
@@ -42,15 +40,13 @@ Advanced potential feature (nice-to-have)
 -Create a dashboard to provide some statistics about all the recipes.  
 
 ## UX
- 
-Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
 
-In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
-- As a user type, I want to perform an action, so that I can achieve a goal.
+Wireframes Can be seen here - https://github.com/jsnbly/milestone3/tree/master/wireframes
+Database Schema Can be seen here - https://github.com/jsnbly/milestone3/tree/master/schema
 
-Users make use of the site to share their own data with the community, and benefit from having convenient access to the data provided by all other members.
-
-The site owner advances their own goals by providing this functionality, potentially by being a regular user themselves. The site owner might also benefit from the collection of the dataset as a whole.
+The Project Scope was to create an Online Cookbook that would have all elements of a CRUD  
+Create, Read, Update, Delete Application the following User Stories are what this version  
+trys to satisfy.
 
 As a user - I want a website that is easy to navigate with a layout that is easy to read  
 As a user - I want to create a user account  
@@ -58,16 +54,13 @@ As a user - I want to search for recipes that might intrest me
 As a user - I want to add my own recipes to the site  
 As a user - I want to update and remove my recipes from the site  
 As a user - I want to share my recipes on social media  
-As a user - I want to vote for my favourite recipes on the site  
-As a user - I want to see all the Alergens associated with the recipe  
+As a user - I want to vote for my favourite recipes on the site   
 As a user - I want to see a list of the top 5 recipes on the site  
 
 
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
-
 ## Features
 
-Home Page/Index: Main Home Page Displays Top Five Recipies by Votes Jumbotron with CTA for Registration   
+Home Page/Index: Main Home Page Displays Top Five Recipes by Votes Jumbotron with link for Registration   
 User Registration Page:  Allows the user to create a user account  
 User Login Page:  Allows the user to Login to their existing account  
 User Profile Page: Shows list of User created Recipies  

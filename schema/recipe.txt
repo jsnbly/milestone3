@@ -1,0 +1,13 @@
+{
+  _id:<ObjectId1>
+  title:string"recipetitle"
+  author:string"usernameinsession"
+  votes:int
+  ingredient:string"ingredient"
+  allergen:string"allergen"
+  instructions:string"instructions"
+  image:string"imagelink"
+  discription:string"description" <--There is a typo in here
+  tags:string"tags"
+  preptime:string"preptime"
+}
