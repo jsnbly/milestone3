@@ -10,7 +10,7 @@
                     <div><b>Author: </b> {{ recipe.author|capitalize }}</div>
                     <div><b>Votes: </b>{{ recipe.votes }}</div>
                     <div><b>Description:</b> {{ recipe.discription[:30] }}...</div>
-                    <div><b>Ingredients:</b> {{ recipe.ingredients }}</div>
+                    <div><b>Ingredients:</b> {{ recipe.ingredient }}</div>
                     <div><b>Allergens:</b> {{ recipe.allergen }}</div>
                     <div><b>Instruction:</b> {{ recipe.instructions[:30] }}...</div>
                     <div class="text-center recpshowbutton"><a href="{{url_for('show_recipe', recipe_id=recipe._id)}}" class="btn btn-success" role="button">See Recipe</a></div>

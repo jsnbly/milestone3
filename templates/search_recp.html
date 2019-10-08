@@ -2,13 +2,18 @@
 
 {% block content %}
 {% for result in results %}
-    <div class="container recipesection">
+<div class="container recipesection">
         <div class="row">
             <div class="col-lg-6"><img src="{{result.image}}" alt="Image" class="img-fluid"> </div>
-            <div class="col-lg-6"><h1>{{ result.title }}</h1> <br>By({{ result.author }}) (Votes:{{ result.votes }})<br> 
-                <p>{{ result.discription }}</p><br>Ingredients:{{ result.ingredients }}, Allergens:{{ result.allergen }}<br>
-                Instruction:{{ result.instructions }}
-            
+            <div class="col-lg-6">
+                <div><h1>{{ result.title[:30] }}</h1></div>
+                <div><b>Author: </b> {{ result.author|capitalize }}</div>
+                <div><b>Votes: </b>{{ result.votes }}</div>
+                <div><b>Description:</b> {{ result.discription[:30] }}...</div>
+                <div><b>Ingredients:</b> {{ result.ingredient }}</div>
+                <div><b>Allergens:</b> {{ result.allergen }}</div>
+                <div><b>Instruction:</b> {{ result.instructions[:30] }}...</div>
+                <div class="text-center recpshowbutton"><a href="{{url_for('show_recipe', recipe_id=result._id)}}" class="btn btn-success" role="button">See Recipe</a></div>
             </div>
             </div>
         </div>
