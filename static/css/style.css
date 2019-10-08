@@ -32,6 +32,10 @@
   width: 250px;
 }
 
+.padbtm{
+  padding-bottom: 10px;
+}
+
 /*Add/Edit Recipe Page*/
 #addrecphead{
   background-color: #73949e;

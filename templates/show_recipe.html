@@ -7,14 +7,21 @@
             <div class="col-lg-6"><img src="{{recipe.image}}" alt="Recipe Image" class="img-fluid"> </div>
             <div class="col-lg-6 ">
                 <div><h1>{{ recipe.title }}</h1></div> 
-                <div><b>Author:</b> ({{ recipe.author|capitalize }})</div> 
+                <div><b>Author:</b> {{ recipe.author|capitalize }}</div> 
                 <div><b>Votes:</b> {{ recipe.votes }}</div> 
                 <div><b>Tags:</b> {{ recipe.tags }}</div>
                 <div><b>Cooking Time:</b> {{ recipe.preptime }}</div>
                 <div class="whitespacing"><b>Description:</b> {{ recipe.discription }}</div>
                 <div><b>Ingredients:</b> {{ recipe.ingredient }}</div> 
                 <div class="whitespacing"><b>Instructions:</b> {{ recipe.instructions }}</div>
-            
+                <div class="text-center">
+                    <button onclick="goBack()" class="btn btn-success">Go Back</button>
+
+                    <script>
+                    function goBack() {
+                      window.history.back();
+                    }
+                    </script></div>
             </div>
             </div>
         </div>
