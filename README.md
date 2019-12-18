@@ -4,47 +4,57 @@ Access Project on Heroku here - https://online-cookbookms3.herokuapp.com/
 
 An Online Cookbook - The brief for this project was to design and build an online Recipe Book to give the site owner a way to promote their brand of cooking tools by give external users a way to share recipes with other users on the site.
 
-# Technologies to use for Project Requirements  
-Main Technologies  
-HTML,CSS,JavaScript,Python & Flask,MongoDB and can include Additional Libraries and external APIS.  
+# Technologies Used 
+HTML  
+CSS  
+JQuery  
+Bootstrap 4.0.0
+Font Awesome 5.11.2
+Python 3.7.4
+Flask  
+WT-Forms  
+Mongodb    
 
 # Outline of Project Mandatory Requirments  
+Below is an Outline of the Project requirments from Code Institute.
+
 Data Handling: Build a MongoDB-backed Flask project for a web application that allows user to store and manipulate data records about a particular domain.  
 Database Structure:Put some effore into designing a database structure well suited for your domain. Mkae sure to put some thought into the nesting relationships between records of different entities.  
 User Functionality: Create functionality for users to create, locate, display, edit and delete records (CRUD functionality)  
 Use of Technologies: Use HTML and customer CSS for the Websites front-end.  
 Structure: Incorporate a main navigation menu and structured layout  
 Documentation: Write a README.md files for your project that explains what the project dose and the value that it provides to its users.  
-Version control: Use Git & GitHug for version control.  
+Version control: Use Git & GitHub for version control.  
 Attribution: Maintain clear separation between code written by you and code from external sources. Attribute any code from external sources via comments above the code and for larger dependencies in the README.  
 Deployment:Deploy the final version of your code to a hosting plaform such as Heroku.  
 
 # Project Idea 
 External User Goals  
--Find and Share Recipes  
+- Find and Share Recipes  
 
 Site Owner Goals  
--Promote a Brand of Cooking Tools  
+- Promote a Brand of Cooking Tools  
 
 Potential Features  
--Create a web application that allows users to store and easily access cooking recipes. Recipes would include fields such as ingredients, preparation steps, required tools, cuisine, etc.  
+- Create a web application that allows users to store and easily access cooking recipes. Recipes would include f fields such as ingredients, preparation steps, required tools, cuisine, etc.  
 
--Create the backend code and frontend form(s) to allow users to add new recipes to the site, edit them and delete them.  
+- Create the backend code and frontend form(s) to allow users to add new recipes to the site, edit them and delete them.  
 
--Create the backend and frontend functionality for users to locate recipes based on the recipe's fields. You may choose to create a full search functionality, or just a directory of recipes.  
+- Create the backend and frontend functionality for users to locate recipes based on the recipe's fields. You may choose to create a full search functionality, or just a directory of recipes.  
 
--Provide results in a manner that is visually appealing and user friendly.  
+- Provide results in a manner that is visually appealing and user friendly.  
 
 Advanced potential feature (nice-to-have)  
--Build upon the required tools field to promote your brand of kitchen tools (e.g. oven, pressure cooker, etc…).  
--Create a dashboard to provide some statistics about all the recipes.  
+- Build upon the required tools field to promote your brand of kitchen tools (e.g. oven, pressure cooker, etc…).  
+- Create a dashboard to provide some statistics about all the recipes.  
 
 ## UX
 
 Wireframes Can be seen here - https://github.com/jsnbly/milestone3/tree/master/wireframes
 Database Schema Can be seen here - https://github.com/jsnbly/milestone3/tree/master/schema
+Importance v Viability Graph for Strategy -  
 
-The Project Scope was to create an Online Cookbook that would have all elements of a CRUD  
+The Project Scope was to create an Online Cookbook that would have all the elements of a CRUD  
 Create, Read, Update, Delete Application the following User Stories are what this version  
 trys to satisfy.
 
@@ -115,36 +125,45 @@ In addition, you may also use this section to discuss plans for additional featu
 - Email Confirmation at time of login  
 
 
-## Technologies Used
-HTML  
-CSS  
-JQuery  
-Bootstrap 4.0.0
-Font Awesome 5.11.2
-Python 3.7.4
-Flask  
-WT-Forms  
-Mongodb    
-
 ## Testing
+Manual testing was used to test the user interface elements while developing this application examples processes used can be seen below  
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
+Automated HTML Validation was achived using W3 Validators  
 
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
+- Testing Search Fuction  
+1. Load Webpage
+2. Enter Query in Search Bar
+3. Test Pass if Query equals Results
 
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
+- Testing User Registration
+1. Contextulize User Registration Page
+2. Fill in required form information
+3. Complete and port form
+4. Test Passed if user logged in
 
-1. Contact form:
-    1. Go to the "Contact Us" page
-    2. Try to submit the empty form and verify that an error message about the required fields appears
-    3. Try to submit the form with an invalid email address and verify that a relevant error message appears
-    4. Try to submit the form with all inputs valid and verify that a success message appears.
+- Testing Login Fuction
+1. Make Sure no user settings logged in (Incognito Mode)
+2. Hit Login Option
+3. Enter known username and password combination
+4. Test passed if know user logged in without error
 
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
+- Add/Save Recipe 
+1. Requires User to be logged into the site
+2. Click Add Recipe
+3. Enter required information in recipe fields
+4. Test Passed if user redirected to profile page with recipe added flash message
 
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
+- Edit Recipe
+1. Requires user to be logged into the site
+2. From the users profile page they can select edit button on recipe
+3. Page should redirect to an edit form page with details of the recipe 
+4. Test passed if Recipe can be updated and saved to show results Flash message recipe edited
 
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
+- Delete Recipe
+1. Requires user to be logged into the site
+2. From the users profile page they can select the delete button on a recipe
+3. Test passed if recipe removed and no longer displayed on profile page
+
 
 ## Deployment  
 

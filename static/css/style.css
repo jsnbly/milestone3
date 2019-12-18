@@ -16,10 +16,21 @@
   color: white;
 }
 
+/*header of landing page top 5*/
 #usrrecipehead{
   padding-bottom: 5px;
   padding-top: 5px;
   background-color: #e6f9ff;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+/*top 5 content on landing page*/
+#usrrecipeheadcontent{
+  padding-bottom: 5px;
+  padding-top: 5px;
+  background-color: #e6f9ff;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 #usrrecipecontent{
   padding-bottom: 5px;
