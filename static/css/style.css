@@ -14,6 +14,8 @@
 .recpheader{
   background-color: #73949e;
   color: white;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
 }
 
 /*header of landing page top 5*/
@@ -31,6 +33,11 @@
   background-color: #e6f9ff;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
+  margin-bottom: 15px;
+}
+/*top 5 image on landing page*/
+#usrimghead{
+  border-radius: 25px;
 }
 #usrrecipecontent{
   padding-bottom: 5px;
@@ -43,8 +50,12 @@
   width: 250px;
 }
 
+/*bottom div in user profile recipe display*/
 .padbtm{
   padding-bottom: 10px;
+  margin-bottom: 15px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 
 /*Add/Edit Recipe Page*/
