@@ -16,7 +16,7 @@ WT-Forms
 Mongodb    
 
 # Outline of Project Mandatory Requirments  
-Below is an Outline of the Project requirments from Code Institute.
+Below is an Outline of the Project requirments from Code Institute Milestone 3.
 
 Data Handling: Build a MongoDB-backed Flask project for a web application that allows user to store and manipulate data records about a particular domain.  
 Database Structure:Put some effore into designing a database structure well suited for your domain. Mkae sure to put some thought into the nesting relationships between records of different entities.  
@@ -37,25 +37,18 @@ Site Owner Goals
 
 Potential Features  
 - Create a web application that allows users to store and easily access cooking recipes. Recipes would include f fields such as ingredients, preparation steps, required tools, cuisine, etc.  
-
 - Create the backend code and frontend form(s) to allow users to add new recipes to the site, edit them and delete them.  
-
 - Create the backend and frontend functionality for users to locate recipes based on the recipe's fields. You may choose to create a full search functionality, or just a directory of recipes.  
-
 - Provide results in a manner that is visually appealing and user friendly.  
-
-Advanced potential feature (nice-to-have)  
-- Build upon the required tools field to promote your brand of kitchen tools (e.g. oven, pressure cooker, etc…).  
-- Create a dashboard to provide some statistics about all the recipes.  
 
 ## UX
 
 Wireframes Can be seen here - https://github.com/jsnbly/milestone3/tree/master/wireframes
 Database Schema Can be seen here - https://github.com/jsnbly/milestone3/tree/master/schema
-Importance v Viability Graph for Strategy -  
+Importance vs Viability Graph ie. Strategy Plane - https://github.com/jsnbly/milestone3/tree/master/strategygraph.jpg
 
 The Project Scope was to create an Online Cookbook that would have all the elements of a CRUD  
-Create, Read, Update, Delete Application the following User Stories are what this version  
+Create, Read, Update, Delete Application the following are some User Stories that this version  
 trys to satisfy.
 
 As a user - I want a website that is easy to navigate with a layout that is easy to read  
@@ -74,6 +67,7 @@ Home Page/Index: Main Home Page Displays Top Five Recipes by Votes Jumbotron wit
 User Registration Page:  Allows the user to create a user account  
 User Login Page:  Allows the user to Login to their existing account  
 User Profile Page: Shows list of User created Recipies  
+Pagination: Built into the Search and Recipe page to allow easier navigation
 Search Box in Nav Bar: Allows the user to search for recipes  
 Nav Bar: Quick access to Login, Logout, Search, Shop  
 Vote Link: Allows user to Vote from recipe  
@@ -98,20 +92,22 @@ Shop Page: Shows the user a range of the site owners products currently for sale
 - Once the user is logged in they will see a new jumbotron for the shop and they will see a list of their  
 - Recipes in the data base here they can view, edit and delete their recipes from the database
 
+- Pagination
+- Pagination has been built in to search results so as not to load the full database of recipes, Pagination
+  allows for seprate pages of results.  
+
 - Nav Bar  
 - Responsive Nav Bar that collapses when the site is viewed on small screen devices it is home to the search box  
 - and navigation links to let the user view recipes, login/logout and access the shop.  
 
 - Search Box  
-- The user can search for any word, phrase or tag that might link to a recipe and will display the result when the  
-- search button is pushed or no results found if there is nothing in the database.  
+- The user can search for any word, phrase or tag that might link to a recipe and will display the result when the search button is pushed or no results found if there is nothing in the database.  
 
 - Recipe Page  
 - Lists all Recipes on the site, User can Click into individual recipes to see full instructions of how to prepare.  
 
 - Shop Page  
-- Generic Landing page for a pretend shop that the Site owner can fill with their own information regarding  
-- Products for Sale. 
+- Generic Landing page for a pretend shop that the Site owner can fill with their own information regarding Products for Sale. 
 
 
 For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
@@ -128,7 +124,7 @@ In addition, you may also use this section to discuss plans for additional featu
 ## Testing
 Manual testing was used to test the user interface elements while developing this application examples processes used can be seen below  
 
-Automated HTML Validation was achived using W3 Validators  
+Automated HTML Validation was achived using W3 Validators on https://validator.w3.org/ and https://jigsaw.w3.org/css-validator/ 
 
 - Testing Search Fuction  
 1. Load Webpage
@@ -163,6 +159,8 @@ Automated HTML Validation was achived using W3 Validators
 1. Requires user to be logged into the site
 2. From the users profile page they can select the delete button on a recipe
 3. Test passed if recipe removed and no longer displayed on profile page
+
+As well as the above examples Manual testing was used to test the UI of the Website to check Responsiveness and reability of the site across a range of screen sizes. Chrome Developer Tools was used along with a Chromebook14" Samsung S6 and Huawei p30 to get a feel for the site across a range of screen types.
 
 
 ## Deployment  
@@ -233,5 +231,5 @@ Other Images from Google Images and https://pixabay.com  Copyright of their owne
 ### Acknowledgements
 
 - I would like to thank my mentor Spencer Barriball for his wisdow and guidance.  
-- Pretty Printed on Youtube for good tutorial on building login systems with python and flask.    
+- Pretty Printed on Youtube for good tutorials on building login systems and pagination with python and flask.  
 - Code institute for great content and learning experience.  

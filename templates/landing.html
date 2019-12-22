@@ -44,7 +44,7 @@
         <div class="col-lg-6">
           <div class="col-lg-12" id="usrrecipehead"><h1>{{ recipe.title[:16]|capitalize }}</h1></div>
           <div class="col-lg-12" id="usrrecipeheadcontent"><b>Author:</b> ({{ recipe.author|capitalize }})<br> <a href="{{url_for('vote', recipe_id=recipe._id)}}">&hearts; Vote Now! :</a> {{ recipe.votes }} People have Loved this Already!<br> 
-            <p><b>Recipe Tags:</b> {{ recipe.tags, }}</p><br>
+            <p><b>Recipe Tags:</b> {{ recipe.tags }}</p><br>{{ recipe.discription[:30] }}...<br>
             <a href="{{url_for('show_recipe', recipe_id=recipe._id)}}" class="btn btn-success" role="button">See Recipe</a>
         
         </div>
@@ -82,10 +82,10 @@
       {% for recipe in recipesuser if session['username'] == recipe.author %}
             
             <div class="col-lg-6 text-center">
-            <div class="col-lg-12" id="usrrecipehead">Recipe Title: {{ recipe.title }}<br>By: {{ recipe.author|capitalize }} (Votes: {{ recipe.votes }})</div>
+            <div class="col-lg-12" id="usrrecipehead"><b>Recipe Title:</b> {{ recipe.title }}<br><b>By:</b> {{ recipe.author|capitalize }} (<b>Number of Votes:</b> {{ recipe.votes }})</div>
             <div class="col-lg-12" id="usrrecipecontent"><img src="{{recipe.image}}" alt="Image" class="img-fluid" id="profileimages"></div> 
             <div class="col-lg-12 padbtm" id="usrrecipecontent">
-            <p>Description: {{ recipe.discription[:30] }}...</p>
+            <p><b>Description:</b> {{ recipe.discription[:30] }}...</p>
             <a href="{{url_for('show_recipe', recipe_id=recipe._id)}}" class="btn btn-success" role="button">See Recipe</a>
             <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn btn-warning" role="button">Edit Recipe</a>
             <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="btn btn-danger" role="button">Delete Recipe</a>
