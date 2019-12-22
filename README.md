@@ -44,8 +44,8 @@ Potential Features
 ## UX
 
 Wireframes Can be seen here - https://github.com/jsnbly/milestone3/tree/master/wireframes
-Database Schema Can be seen here - https://github.com/jsnbly/milestone3/tree/master/schema
-Importance vs Viability Graph ie. Strategy Plane - https://github.com/jsnbly/milestone3/tree/master/strategygraph.jpg
+Database Schema Can be seen here - https://github.com/jsnbly/milestone3/tree/master/schema  
+Importance vs Viability Graph ie. Strategy Plane - https://github.com/jsnbly/milestone3/tree/master/ux/strategygraph.jpg
 
 The Project Scope was to create an Online Cookbook that would have all the elements of a CRUD  
 Create, Read, Update, Delete Application the following are some User Stories that this version  
