@@ -11,11 +11,13 @@ app = Flask(__name__)
 
 #MongoDB Atlas config linked to Enviroment Variables in Heroku Settings
 app.config["MONGO_DBNAME"] = 'cimilestone3'
-#app.config["MONGO_URI"] = os.environ.get("MONGODB_URI")
+app.config["MONGO_URI"] = os.environ.get("MONGODB_URI")
 #secret key config linked to Enviroment Variable in Heroku Settings
-#app.config["SECRET_KEY"]= os.environ.get("SECRET_KEY")
-app.config["SECRET_KEY"] = 'codeinstitute' 
-app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb+srv://root:KGvZjQwMBmy3N05k@myfirstcluster-zp3d6.mongodb.net/cimilestone3?retryWrites=true&w=majority')
+app.config["SECRET_KEY"]= os.environ.get("SECRET_KEY")
+
+#Below used for local testing
+#app.config["SECRET_KEY"] = 'codeinstitute' 
+#app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'forlocaltesting')
 
 
 #Initilize Pymongo
@@ -180,12 +182,10 @@ def vote(recipe_id):
 def get_shop():
     return render_template("shop.html", title='CookIT Shop')
 
-#remove debug flag for deployment
+#remove debug flag for local testing only
 if __name__ == '__main__':
-   app.run(debug=True)
-
-   #app.run(host=os.environ.get('IP'),
-    #     port=int(os.environ.get('PORT')),
-     #    debug=True)
+   app.run(host=os.environ.get('IP'),
+        port=int(os.environ.get('PORT')),
+        debug=True)
 
     

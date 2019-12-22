@@ -209,7 +209,7 @@ specifications and setup a collection with the database schema before you can co
 7. Replace this with app.run(debug=True) this will allow the app to diplay debugging information in the browser  
 8. Open a web browser and point it to http://127.0.0.1:5000 to view running version  
     
-
+Before Final Deployment all Passwords used in development were removed so anything in code tree is no longer valid.  
 
 ## Credits  
 I would like to credit my mentor as he helped with explaning the use of regular expressions in my search code 
