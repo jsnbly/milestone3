@@ -92,7 +92,6 @@ Shop Page: Shows the user a range of the site owners products currently for sale
 - Once the user is logged in they will see a new jumbotron for the shop and they will see a list of their  
 - Recipes in the data base here they can view, edit and delete their recipes from the database
 
-- Pagination
 - Pagination has been built in to search results so as not to load the full database of recipes, Pagination
   allows for seprate pages of results.  
 
@@ -218,6 +217,9 @@ as I could not find a cleaner way to achive this his code is clearly commented i
 
 The login code was built with the help of Pretty Printed video on Youtube this can be found here  
 https://www.youtube.com/watch?v=vVx1737auSE  
+
+I also took inspiration for Pagination from Pretty Printed video here:  
+https://www.youtube.com/watch?v=Lnt6JqtzM7I  
 
 Navbar and Footer Code was taken from Bootstrap 4 example Code in Bootstrap4 Documentation
 

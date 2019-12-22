@@ -40,12 +40,12 @@
   <div class="container recipesection text-center">
     <div class="row">
         
-        <div class="col-lg-6" id="usrimghead"><img src="{{recipe.image}}" alt="Image" class="img-fluid"> </div>
+        <div class="col-lg-6"><img src="{{recipe.image}}" alt="Image" class="img-fluid" id="usrimghead"> </div>
         <div class="col-lg-6">
           <div class="col-lg-12" id="usrrecipehead"><h1>{{ recipe.title[:16]|capitalize }}</h1></div>
           <div class="col-lg-12" id="usrrecipeheadcontent"><b>Author:</b> ({{ recipe.author|capitalize }})<br> <a href="{{url_for('vote', recipe_id=recipe._id)}}">&hearts; Vote Now! :</a> {{ recipe.votes }} People have Loved this Already!<br> 
-            <p><b>Recipe Tags:</b> {{ recipe.tags }}</p><br>{{ recipe.discription[:30] }}...<br>
-            <a href="{{url_for('show_recipe', recipe_id=recipe._id)}}" class="btn btn-success" role="button">See Recipe</a>
+            <p><b>Recipe Tags:</b> {{ recipe.tags }}<br><b>Discription:</b> {{ recipe.discription[:50] }}...<br></p>
+            <p><a href="{{url_for('show_recipe', recipe_id=recipe._id)}}" class="btn btn-success" role="button">See Recipe</a></p>
         
         </div>
         </div>
@@ -83,7 +83,7 @@
             
             <div class="col-lg-6 text-center">
             <div class="col-lg-12" id="usrrecipehead"><b>Recipe Title:</b> {{ recipe.title }}<br><b>By:</b> {{ recipe.author|capitalize }} (<b>Number of Votes:</b> {{ recipe.votes }})</div>
-            <div class="col-lg-12" id="usrrecipecontent"><img src="{{recipe.image}}" alt="Image" class="img-fluid" id="profileimages"></div> 
+            <div class="col-lg-12" id="usrrecipecontent"><img src="{{recipe.image}}" alt="Image" id="usrimghead" class="img-fluid" id="profileimages"></div> 
             <div class="col-lg-12 padbtm" id="usrrecipecontent">
             <p><b>Description:</b> {{ recipe.discription[:30] }}...</p>
             <a href="{{url_for('show_recipe', recipe_id=recipe._id)}}" class="btn btn-success" role="button">See Recipe</a>

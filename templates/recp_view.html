@@ -4,7 +4,7 @@
     {% for recipe in recipes %}
         <div class="container recipesection">
             <div class="row">
-                <div class="col-lg-6"><img src="{{recipe.image}}" alt="Image" class="img-fluid"> </div>
+                <div class="col-lg-6"><img src="{{recipe.image}}" alt="Image" class="img-fluid" id="usrimghead"> </div>
                 <div class="col-lg-6">
                     <div><h1>{{ recipe.title[:30] }}</h1></div>
                     <div><b>Author: </b> {{ recipe.author|capitalize }}</div>
